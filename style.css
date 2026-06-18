@@ -1,0 +1,153 @@
+/* Global dark theme override */
+:root {
+  --slidev-theme-primary: #7dd3fc;
+}
+
+/* Hide the goto/jump dialog (triggered by 'g' key) — leaks out of viewport when closed */
+#slidev-goto-dialog {
+  display: none !important;
+}
+
+.slidev-layout {
+  background-color: #0f0f0f;
+  color: #e5e5e5;
+}
+
+/* Headings */
+.slidev-layout h1 {
+  color: #f1f5f9;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.slidev-layout p {
+  margin: 0;
+}
+
+/* Override theme's default h1+p subtitle style (-mt-2 opacity-50) */
+.slidev-layout h1 + p {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.slidev-layout h2 {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+/* Accent color for emphasis */
+.accent {
+  color: #7dd3fc;
+}
+
+.accent-red {
+  color: #f87171;
+}
+
+.accent-green {
+  color: #86efac;
+}
+
+.accent-yellow {
+  color: #fde68a;
+}
+
+/* Code blocks */
+.slidev-code {
+  background-color: #1e1e2e !important;
+  border: 1px solid #2d2d3f;
+  border-radius: 8px;
+}
+
+/* Inline code */
+code:not(.slidev-code code) {
+  background-color: #1e293b;
+  color: #7dd3fc;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #1e293b;
+  color: #7dd3fc;
+  padding: 0.6em 1em;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid #1e293b;
+  padding: 0.5em 1em;
+  color: #cbd5e1;
+}
+
+tr:hover td {
+  background-color: #0f172a;
+}
+
+/* Problem title page */
+.problem-title {
+  border-left: 4px solid #f87171;
+  padding-left: 1rem;
+}
+
+/* Solution title */
+.solution-title {
+  border-left: 4px solid #86efac;
+  padding-left: 1rem;
+}
+
+/* Bullet lists */
+ul li {
+  margin-bottom: 0.4em;
+  line-height: 1.6;
+}
+
+/* Divider line */
+hr {
+  border-color: #1e293b;
+  margin: 1rem 0;
+}
+
+/* Transition section */
+.transition-page h1 {
+  font-size: 3rem;
+  color: #7dd3fc;
+}
+
+/* Flow arrow */
+.flow-arrow {
+  color: #475569;
+  font-size: 1.2rem;
+}
+
+/* Part label badge */
+.part-badge {
+  display: inline-block;
+  background-color: #1e293b;
+  color: #7dd3fc;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.6em;
+  border-radius: 9999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.part-badge-red {
+  background-color: #2d0f0f;
+  color: #f87171;
+}
+
+.part-badge-green {
+  background-color: #0d2d1a;
+  color: #86efac;
+}
