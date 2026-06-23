@@ -4,7 +4,7 @@ class: text-center
 ---
 
 <div class="mb-6">
-  <span class="part-badge">小結</span>
+  <span class="part-badge">總結</span>
 </div>
 
 # Module Federation 的三個邊界

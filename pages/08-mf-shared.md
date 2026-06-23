@@ -35,7 +35,7 @@ layout: default
         <div class="s-row"><span class="s-role host-c">Host</span><span class="s-ver">20.1.0</span></div>
         <div class="s-arrow">↕</div>
         <div class="s-row"><span class="s-role remote-c">Remote</span><span class="s-ver">19.2.0</span></div>
-        <div class="s-result bad">✗ 各自載入</div>
+        <div class="s-result bad">✗ throw error</div>
       </div>
     </div>
     <div class="config-block host-block">

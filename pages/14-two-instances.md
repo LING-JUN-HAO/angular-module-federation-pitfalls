@@ -14,13 +14,8 @@ layout: none
 <div class="content-row">
 
 <div class="left-col">
-  <div class="img-label">Host build 完，觀察 Module Federation shared scope 註冊情形</div>
-  <div class="img-note">注意：清單中沒有 <code>@angular/core/rxjs-interop</code></div>
-  <img src="/webpack-shared-register.png" class="slide-img" />
-</div>
 
-<div class="right-col">
-
+<v-click>
 <div class="instance-diagram">
   <div class="inst-label">執行時的 module 狀態</div>
   <div class="inst-cols">
@@ -48,15 +43,26 @@ layout: none
     </div>
   </div>
 </div>
+</v-click>
 
+<v-click>
 <div class="problem-box">
   <div class="problem-title">問題點</div>
   <div class="problem-text">
     <code>toSignal()</code> 透過 B 執行 → B 沒有作用中的 injector → <span class="err">NG0203</span>
   </div>
 </div>
+</v-click>
 
 </div>
+
+<v-click>
+<div class="right-col">
+  <div class="img-label">Host build 完，觀察 Module Federation shared scope 註冊情形</div>
+  <div class="img-note">注意：清單中沒有 <code>@angular/core/rxjs-interop</code></div>
+  <img src="/webpack-shared-register.png" class="slide-img" />
+</div>
+</v-click>
 
 </div>
 </div>
@@ -91,6 +97,7 @@ layout: none
   gap: 1.5rem;
   flex: 1;
   min-height: 0;
+  margin-top: 0.8rem;
 }
 .left-col {
   display: flex;
@@ -110,7 +117,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
 }
 .img-note {
   font-size: 0.62rem;
@@ -141,7 +148,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   padding: 0.5rem 0.9rem;
   background: #0b1222;
   border-bottom: 1px solid #1e293b;
@@ -149,7 +156,7 @@ layout: none
 .inst-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  gap: 0.6rem;
 }
 .inst-zone {
   padding: 0.75rem 0.85rem;
@@ -158,13 +165,13 @@ layout: none
   gap: 0.35rem;
 }
 .shared-zone { border-right: 1px solid #1e293b; }
-.bundle-zone { background: #0d0a0a; }
+.bundle-zone {}
 .zone-title {
   font-size: 0.52rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   margin-bottom: 0.15rem;
 }
 .zone-pkg {
@@ -173,13 +180,13 @@ layout: none
   gap: 0.45rem;
   font-size: 0.65rem;
   font-family: 'Fira Code', monospace;
-  color: #64748b;
+  color: #a5b4fc;
 }
 .zone-pkg.danger { color: #f87171; }
 .pkg-long { font-size: 0.48rem; }
 .zone-arrow {
   font-size: 0.6rem;
-  color: #334155;
+  color: #94a3b8;
   padding-left: 1rem;
   line-height: 1.2;
 }

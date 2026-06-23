@@ -3,10 +3,6 @@ layout: center
 class: text-center transition-page
 ---
 
-<div class="mb-4">
-  <span class="part-badge part-badge-red">實戰踩坑</span>
-</div>
-
 # 三個實戰踩坑
 
 <div class="mt-10 flex flex-col items-center gap-4">

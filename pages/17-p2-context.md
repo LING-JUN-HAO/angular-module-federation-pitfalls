@@ -62,12 +62,11 @@ layout: none
     </div>
     <div class="tl-content">
       <div class="tl-label">推測方向</div>
-      <div class="tl-body">方向：與 production mode 的最佳化流程有關<br>
+      <div class="tl-body">可能與 production mode 的最佳化流程有關<br>
         <span class="tl-tags">
           <span class="tl-tag">minify</span>
           <span class="tl-tag">tree-shaking</span>
           <span class="tl-tag">module concatenation</span>
-          <span class="tl-tag">依賴解析順序</span>
         </span>
       </div>
     </div>
@@ -75,14 +74,16 @@ layout: none
 
 </div>
 
+<v-click>
 <div class="right-col">
   <div class="img-label">錯誤只出現在 production bundle 執行階段</div>
   <img src="/p2-runtime-error.png" class="error-img" />
   <div class="error-caption">
     <code>TypeError: Class extends value undefined is not a constructor or null</code>
   </div>
-  <div class="tl-ruling">逐一移除疑似相關套件（RxJS 等）後問題依然存在，不是單一套件的問題，根因更底層</div>
+  <div class="tl-ruling">排除多個疑似相關依賴後，問題仍然存在，初步判斷根因不在單一套件，而是更底層的打包或共享機制。</div>
 </div>
+</v-click>
 
 </div>
 </div>

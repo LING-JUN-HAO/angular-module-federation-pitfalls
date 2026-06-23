@@ -6,40 +6,40 @@ layout: default
 
 <div class="body-wrap">
   <div class="intro-line">
-    常見的實現方式有四種，核心都在處理同一件事：<span class="accent">如何讓多個子應用整合在同一個頁面，同時維持彼此的隔離性</span>
+    <div>常見的微前端整合方式包含 iframe、Web Components、Single SPA、Runtime Dynamic Loading 等</div>
+    <div class="intro-line-gap">核心都在處理同一件事：<span class="accent">如何將多個獨立前端應用組合成一個完整系統，同時維持各自的開發與部署邊界</span></div>
   </div>
   <div class="other-methods">
     <v-clicks>
     <div class="method-card">
       <div class="method-name">iframe</div>
       <div class="method-pro"><span class="label-pro">優</span>完全隔離、技術棧不限</div>
-      <div class="method-con"><span class="label-con">缺</span>路由同步困難</div>
-      <div class="method-con"><span class="label-con">缺</span>跨框架溝通成本高</div>
+      <div class="method-con"><span class="label-con">缺</span>路由與狀態同步困難</div>
+      <div class="method-con"><span class="label-con">缺</span>父子應用需透過 postMessage 溝通</div>
     </div>
     <div class="method-card">
       <div class="method-name">Web Components</div>
       <div class="method-pro"><span class="label-pro">優</span>原生瀏覽器標準</div>
-      <div class="method-con"><span class="label-con">缺</span>封裝與整合成本較高</div>
-      <div class="method-con"><span class="label-con">缺</span>共用依賴需自行設計</div>
+      <div class="method-con"><span class="label-con">缺</span>資料與事件傳遞需自行規劃</div>
+      <div class="method-con"><span class="label-con">缺</span>樣式整合成本高</div>
     </div>
     <div class="method-card">
       <div class="method-name">Single SPA</div>
       <div class="method-pro"><span class="label-pro">優</span>完整微前端框架</div>
-      <div class="method-con"><span class="label-con">缺</span>需遵守生命週期規範</div>
-      <div class="method-con"><span class="label-con">缺</span>架構侵入性較高</div>
+      <div class="method-con"><span class="label-con">缺</span>子應用需配合主應用掛載流程</div>
     </div>
     <div class="method-card">
       <div class="method-name">Runtime Dynamic Loading</div>
       <div class="method-pro"><span class="label-pro">優</span>載入邏輯完全自訂</div>
-      <div class="method-con"><span class="label-con">缺</span>依賴協商需自行實作</div>
-      <div class="method-con"><span class="label-con">缺</span>Runtime 問題難以除錯</div>
+      <div class="method-con"><span class="label-con">缺</span>缺少標準化框架支援</div>
+      <div class="method-con"><span class="label-con">缺</span>版本與載入錯誤需自行處理</div>
     </div>
     </v-clicks>
   </div>
 
   <v-click>
   <div class="intro-line">
-    而 <span class="accent">Webpack Module Federation</span> 更進一步，能在 <span class="accent">Runtime</span> 階段協商依賴版本，讓多個子應用共享同一套件實例，避免重複載入。
+    而 <span class="accent">Webpack Module Federation</span> 更進一步，能在 <span class="accent">Runtime</span> 階段協商依賴版本，讓多個應用在版本相容時共享同一份模組實例，避免重複初始化與執行。
   </div>
   <div class="wmf-card">
     <div class="wmf-header">
@@ -48,7 +48,7 @@ layout: default
     </div>
     <div class="wmf-body">
       <div class="dep-col">
-        <div class="dep-col-label label-bad">傳統方式</div>
+        <div class="dep-col-label label-bad">Share Nothing</div>
         <div class="dep-apps">
           <div class="dep-app">
             <div class="dep-app-name">主應用</div>
@@ -69,7 +69,7 @@ layout: default
             <div class="dep-pkg pkg-red">PrimeNG</div>
           </div>
         </div>
-        <div class="dep-result dep-bad">重複打包、重複下載</div>
+        <div class="dep-result dep-bad">重複打包、重複載入</div>
       </div>
       <div class="wmf-divider"></div>
       <div class="dep-col">
@@ -95,7 +95,7 @@ layout: default
             </div>
           </div>
         </div>
-        <div class="dep-result dep-good">共用依賴，只載入一次</div>
+        <div class="dep-result dep-good">共用相容依賴，避免重複執行</div>
       </div>
     </div>
   </div>
@@ -115,6 +115,9 @@ layout: default
   color: #64748b;
   line-height: 1.5;
   flex-shrink: 0;
+}
+.intro-line-gap {
+  margin-top: 0.3rem;
 }
 .wmf-bridge {
   font-size: 0.75rem;

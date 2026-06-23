@@ -13,6 +13,7 @@ layout: none
 
 <div class="left-col">
 
+<div>
   <div class="mini-label">最小模型：兩個互相依賴的模組</div>
 
 ```ts
@@ -24,17 +25,23 @@ import { Subscriber } from "./A";
 export class OperatorSubscriber extends Subscriber {}
 ```
 
-  <div class="mini-label mt-3 warn-label">未關閉 concatenateModules 時會發生什麼</div>
+</div>
+
+<div v-click>
+  <div class="mini-label mt-3 warn-label">啟用 concatenateModules 後的風險</div>
 
 ```ts
 class OperatorSubscriber extends Subscriber {}
 ```
 
-  <div class="explain-box explain-warn">開啟 <code>concatenateModules</code> 後，模組初始化的切分會改變，<code>extends Subscriber</code> 這段程式碼被合併到更早執行的初始化流程裡，導致 <code>Subscriber</code> 對應的依賴可能還沒 ready。這時 <code>Subscriber</code> 就可能是 <code>undefined</code>，因此拋出 <code>Class extends value undefined</code>。</div>
+  <div class="explain-box explain-warn">scope hoisting 不會改變 ES module 的依賴執行順序，但會合併模組邊界；在 shared module 載入路徑上，原本不容易觀察到的初始化時序問題可能因此浮現，進而拋出 <code>Class extends value undefined</code>。</div>
 
   <div class="model-note">示意：簡化模型，非逐行對應實際 dist 程式碼</div>
 
-  <div class="mini-label mt-3 fix-label">修復：webpack 設定</div>
+</div>
+
+<div v-click>
+  <div class="mini-label mt-3 fix-label">解決方式：webpack 設定關閉 concatenateModules 優化設定</div>
 
 ```ts {2}
 optimization: {
@@ -44,6 +51,9 @@ optimization: {
 
 </div>
 
+</div>
+
+<div v-click>
 <div class="right-col">
 
   <div class="img-label">對回實際 dist 產物</div>
@@ -72,14 +82,15 @@ optimization: {
     <div class="trace-step">
       <div class="trace-num">4</div>
       <div class="trace-body">
-        <div class="trace-title">Root Cause 指向初始化順序差異</div>
-        <div class="trace-detail">關閉 <code>concatenateModules</code> 後，shared module 的切分與初始化順序改變，原本出錯的那條路徑不再出現，因此不會再碰到依賴尚未 ready 的時點</div>
+        <div class="trace-title">對照 dist 確認：問題出在 shared module 初始化順序</div>
+        <div class="trace-detail">比對兩份 dist 的執行順序後確認：關閉 <code>concatenateModules</code> 後，shared module 的切分回到可預期的邊界，原本提前被引用、尚未初始化的時序路徑不再出現</div>
       </div>
     </div>
   </div>
 
-  <div class="tl-ruling">代價：scope hoisting 是 production 體積與效能最佳化的一部分，關閉後 bundle 通常會略大；但能換回較可預測的 shared module 載入與初始化路徑。</div>
+  <div class="tl-ruling">代價：scope hoisting 透過合併 closure 減少 module wrapper 與 runtime 開銷，關閉後 bundle 通常會略大；但能換回較可預測的 shared module 載入與初始化路徑。</div>
 
+</div>
 </div>
 
 </div>
@@ -122,6 +133,7 @@ optimization: {
 .left-col {
   display: flex;
   flex-direction: column;
+  gap: 0.7rem;
   min-height: 0;
 }
 .right-col {
@@ -132,11 +144,11 @@ optimization: {
   overflow: hidden;
 }
 .mini-label {
-  font-size: 0.5rem;
+  font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.25rem;
 }
 .warn-label { color: #f87171; }
@@ -144,44 +156,44 @@ optimization: {
 .explain-box {
   font-size: 0.56rem;
   color: #94a3b8;
-  line-height: 1.9;
-  padding: 0.55rem 0.75rem;
+  line-height: 1.8;
+  padding: 0.45rem 0.65rem;
   border-radius: 0 4px 4px 0;
   margin-bottom: 0.35rem;
 }
 .explain-box code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   color: #a5b4fc;
 }
 .explain-warn {
   background: #1e0a0a;
   border-left: 2px solid #f87171;
-  margin-top: 0.35rem;
+  margin-top: 0.6rem;
   margin-bottom: 0;
 }
 .model-note {
-  font-size: 0.5rem;
-  color: #475569;
+  font-size: 0.56rem;
+  color: #94a3b8;
   margin-top: 0.25rem;
   font-style: italic;
 }
 .mt-3 { margin-top: 0.55rem; }
 .left-col pre {
-  font-size: 0.52rem !important;
-  line-height: 1.45 !important;
+  font-size: 0.62rem !important;
+  line-height: 1.5 !important;
   margin: 0 !important;
   border-radius: 6px !important;
 }
 .left-col pre code {
-  font-size: 0.52rem !important;
+  font-size: 0.62rem !important;
 }
 .img-label {
-  font-size: 0.5rem;
+  font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   border-bottom: 1px solid #1e293b;
   padding-bottom: 0.3rem;
   margin-bottom: 0.4rem;
@@ -229,7 +241,7 @@ optimization: {
   color: #a5b4fc;
 }
 .tl-ruling {
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   font-weight: 600;
   color: #e2e8f0;
   line-height: 1.7;

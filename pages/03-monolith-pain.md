@@ -5,7 +5,7 @@ layout: default
 # 單體架構的痛點
 
 <div class="mt-2 text-sm" style="color: #64748b;">
-  當多個團隊同時維護同一份程式碼庫，衝突與瓶頸就會不斷出現
+  當所有功能都集中在同一個前端專案中，團隊協作、部署與技術演進都會受到限制
 </div>
 
 <div class="mt-6 space-y-3">
@@ -14,7 +14,7 @@ layout: default
   <div class="pain-item">
     <span class="pain-num">01</span>
     <div>
-      <div class="pain-title">牽一髮動全身</div>
+      <div class="pain-title">功能模組邊界不清楚</div>
       <div class="pain-desc">隨著專案成長，程式碼之間的相依關係越來越複雜，改動任何一處都需要花大量時間確認影響範圍</div>
     </div>
   </div>

@@ -4,6 +4,8 @@ layout: default
 
 # Remote 需要它，shared scope 卻沒有
 
+<div class="body-wrap">
+
 <div class="two-col">
 
 <div class="left-col">
@@ -34,13 +36,15 @@ export class TimerComponent {
 
 ```ts
 shared: share({
-  '@angular/core': {
-    singleton: true, requiredVersion: 'auto'
+  "@angular/core": {
+    singleton: true,
+    requiredVersion: "auto",
   },
-  '@angular/core/rxjs-interop': {
-    singleton: true, requiredVersion: 'auto'
+  "@angular/core/rxjs-interop": {
+    singleton: true,
+    requiredVersion: "auto",
   },
-})
+});
 ```
 
 </div>
@@ -53,21 +57,21 @@ shared: share({
   <v-click>
   <div class="chain-label">問題發生流程</div>
   <div class="chain-node cause">
-    Host 有列出 <code>@angular/core/rxjs-interop</code>，但自身未使用它 → 未進入 bundle
+    Host 有列出 <code>@angular/core/rxjs-interop</code>，但 Host 未實際 import，未進入 Host bundle
   </div>
   </v-click>
 
   <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node effect">
-    shared scope 裡不存在此 module
+    shared scope 裡不存在此套件
   </div>
   </v-click>
 
   <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node neutral">
-    Remote 載入時去 shared scope 找 → 找不到
+    Remote 載入時去 shared scope 找，但找不到
   </div>
   </v-click>
 
@@ -106,18 +110,26 @@ shared: share({
 </div>
 </div>
 
+</div>
+
 <style>
+.body-wrap {
+  height: calc(100% - 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0.8rem;
+}
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.8rem;
   align-items: stretch;
-  margin-top: 1.2rem;
 }
 .left-col {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.7rem;
 }
 .right-col {
   display: flex;
@@ -130,6 +142,12 @@ shared: share({
   border: 1px solid #1e293b;
   border-radius: 8px;
   overflow: hidden;
+}
+.code-block :deep(pre),
+.config-block :deep(pre) {
+  font-size: 0.62rem !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
 }
 .code-header,
 .config-header {
@@ -183,12 +201,12 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   margin-bottom: 0.4rem;
 }
 .chain-arrow {
   font-size: 1rem;
-  color: #334155;
+  color: #7dd3fc;
   text-align: center;
   line-height: 1.3;
   padding: 0.05rem 0;
@@ -198,7 +216,7 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   margin-top: 0.75rem;
   margin-bottom: 0.4rem;
 }
@@ -225,8 +243,8 @@ shared: share({
 }
 .compare-row.success .compare-cond { color: #86efac; }
 .compare-row.fail    .compare-cond { color: #f87171; }
-.compare-sep { color: #334155; flex-shrink: 0; }
-.compare-result { color: #64748b; }
+.compare-sep { color: #7dd3fc; flex-shrink: 0; }
+.compare-result { color: #94a3b8; }
 .compare-row.success .compare-result { color: #86efac; }
 .compare-row.fail    .compare-result { color: #f87171; }
 </style>

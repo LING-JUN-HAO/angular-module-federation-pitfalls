@@ -25,34 +25,34 @@ layout: default
   <div class="section-label">設定參數</div>
   <div class="params-section">
     <div class="params-col">
-      <div class="params-col-title remote-c">Remote — webpack.config.js</div>
+      <div class="params-col-title host-c">Host Router — loadRemoteModule()</div>
       <div class="param-row">
-        <span class="param-key">name</span>
-        <span class="param-desc">這個 Remote 的識別名稱</span>
+        <span class="param-key">type</span>
+        <span class="param-desc">指定 remoteEntry 的載入格式，例如 <span class="accent">module</span> 表示以 ES Module 方式載入</span>
       </div>
       <div class="param-row">
-        <span class="param-key">filename</span>
-        <span class="param-desc">Remote 對外提供的入口檔，Host 透過它取得可載入的模組清單</span>
+        <span class="param-key">remoteEntry</span>
+        <span class="param-desc">Remote 建置後產生的 federation 入口檔 URL，Host 透過它取得載入公開模組所需的資訊</span>
       </div>
       <div class="param-row">
-        <span class="param-key">exposes</span>
-        <span class="param-desc">決定哪些模組可以被外部使用，沒有在這裡列出的，Host 無法存取</span>
+        <span class="param-key">exposedModule</span>
+        <span class="param-desc">指定要載入的公開模組名稱，需對應 Remote <span class="accent">exposes</span> 裡的 key</span>
       </div>
     </div>
     <div class="params-divider"></div>
     <div class="params-col">
-      <div class="params-col-title host-c">Host Router — loadRemoteModule()</div>
+      <div class="params-col-title remote-c">Remote — webpack.config.js</div>
       <div class="param-row">
-        <span class="param-key">type</span>
-        <span class="param-desc">告訴 Module Federation 要以哪種格式載入 Remote，預設使用 <span class="accent">ES Module</span></span>
+        <span class="param-key">name</span>
+        <span class="param-desc">Remote 的識別名稱，Host 載入時用來識別這個 remote container</span>
       </div>
       <div class="param-row">
-        <span class="param-key">remoteEntry</span>
-        <span class="param-desc">告訴 Host 去哪裡找這個 Remote，指向 Remote 建置後產生的入口檔 URL</span>
+        <span class="param-key">filename</span>
+        <span class="param-desc">Remote 對外輸出的 federation 入口檔名稱，常見為 <span class="accent">remoteEntry.js</span></span>
       </div>
       <div class="param-row">
-        <span class="param-key">exposedModule</span>
-        <span class="param-desc">指定要載入的公開模組，名稱需對應 Remote <span class="accent">exposes</span> 的 key</span>
+        <span class="param-key">exposes</span>
+        <span class="param-desc">定義哪些模組可以被 Host 載入，未列在這裡的模組，Host 不能直接取得</span>
       </div>
     </div>
   </div>
@@ -100,9 +100,10 @@ layout: default
   color: #cbd5e1;
 }
 .role-desc {
-  font-size: 0.7rem;
-  color: #475569;
+  font-size: 0.75rem;
+  color: #94a3b8;
   line-height: 1.6;
+  font-weight: 500;
 }
 .relation-arrow {
   display: flex;
@@ -112,8 +113,9 @@ layout: default
   flex-shrink: 0;
 }
 .top-label, .bottom-label {
-  font-size: 0.58rem;
-  color: #475569;
+  font-size: 0.6rem;
+  color: #94a3b8;
+  font-weight: 500;
   white-space: nowrap;
 }
 .arrow-body {

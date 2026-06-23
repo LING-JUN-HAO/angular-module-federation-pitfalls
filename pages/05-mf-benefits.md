@@ -42,7 +42,7 @@ layout: default
       掛號系統發生問題，門診與批價照常運作，不互相影響
     </div>
     <div class="benefit-fix">
-      <span class="fix-tag">解決</span> 牽一髮動全身
+      <span class="fix-tag">解決</span> 功能模組邊界不清楚
     </div>
   </div>
 

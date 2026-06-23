@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Host 顯性列出，dist 卻沒有它
+# Host 顯性列出，build dist 卻沒有它
 
 <div class="mt-2 mb-5 text-sm" style="color: #64748b;">
   把套件名稱寫進 shared 設定，不等於 Webpack 真的會把它共享出去
@@ -74,7 +74,7 @@ shared: share({
     <div class="step-arrow"></div>
     <div class="reason-step">
       <span class="step-num">3</span>
-      <div class="step-text">Module Federation shared plugin 只對<strong>進入 graph 的模組</strong>套用共享規則，設定才會生效</div>
+      <div class="step-text">因此 <code>@angular/core/rxjs-interop</code> 從未進入 bundle，<strong>不會註冊到 shared scope</strong></div>
     </div>
   </div>
 </div>
@@ -84,10 +84,10 @@ shared: share({
 <div class="rule-box mt-4">
   <div class="rule-title">Module Federation 的共享前提</div>
   <div class="rule-text">
-    shared 設定只是<strong>宣告意圖</strong>：<br>
-    「如果這個套件被用到，就用共享版本」<br><br>
-    套件本身沒有被 import，就不會進 bundle，<br>
-    也就不會出現在 shared scope 裡。
+    shared 設定不是強制打包清單，而是在宣告：<br>
+    「這個套件若被載入，應優先使用共享版本。」<br><br>
+    因此套件仍必須實際被 import、進入 bundle，<br>
+    才有機會註冊到 shared scope 並參與共享。
   </div>
 </div>
 </v-click>
@@ -146,7 +146,7 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   padding: 0.5rem 0.9rem;
   border-bottom: 1px solid #1e293b;
 }
@@ -213,10 +213,11 @@ shared: share({
   gap: 0.6rem;
 }
 .step-num {
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  color: #334155;
-  background: #1e293b;
+  color: #7dd3fc;
+  background: #1e3a5f;
+  border: 1px solid #1e4a6e;
   border-radius: 50%;
   width: 18px;
   height: 18px;
@@ -228,7 +229,7 @@ shared: share({
 }
 .step-text {
   font-size: 0.7rem;
-  color: #64748b;
+  color: #94a3b8;
   line-height: 1.5;
 }
 .step-text code {
@@ -259,7 +260,7 @@ shared: share({
 }
 .rule-text {
   font-size: 0.7rem;
-  color: #64748b;
+  color: #94a3b8;
   line-height: 1.8;
 }
 .rule-text strong {

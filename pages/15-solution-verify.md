@@ -52,10 +52,11 @@ import("./bootstrap").then(() => {
 
 </div>
 
-<div class="timing-note">side effect import 讓 webpack 在 build 時把 <code>@angular/core/rxjs-interop</code> 納入 bundle，bootstrap 時才能登記進 shared scope，並參與版本協商。</div>
+<div class="timing-note">透過 side effect import 明確引用 <code>@angular/core/rxjs-interop</code>，讓它進入 Host 的 dependency graph；若同時被設定為 shared，webpack 會在 shared scope 初始化後註冊此 secondary entry point，供 runtime 進行版本協商與共用。</div>
 
 </div>
 
+<v-click>
 <div class="right-col">
   <div class="img-label">Host console 輸出</div>
   <div class="img-note"><code>@angular/core/rxjs-interop</code> 成功出現在 shared scope 清單中</div>
@@ -65,6 +66,7 @@ import("./bootstrap").then(() => {
   </div>
   <img src="/shared-scope-console.png" class="slide-img" />
 </div>
+</v-click>
 
 </div>
 </div>
@@ -111,6 +113,7 @@ import("./bootstrap").then(() => {
   flex-direction: column;
   gap: 0.6rem;
   overflow: hidden;
+  margin-top: 0.6rem;
 }
 .code-block {
   background: #0f172a;

@@ -9,5 +9,5 @@
 </p>
 
 <p class="text-base mb-4" style="color: #64748b;">
-  從架構原理到三個實戰踩坑
+  Build 沒報錯，不代表 Runtime 沒問題
 </p>
