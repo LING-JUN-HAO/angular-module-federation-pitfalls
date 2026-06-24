@@ -4,13 +4,14 @@ layout: center
 
 <div class="intro-wrap">
 
-<div class="intro-avatar-placeholder"></div>
+<img src="/profile.jpg" class="intro-avatar" />
 
 <div class="intro-text">
   <div class="intro-name">Antonio</div>
   <div class="intro-role">前端工程師 · 新創醫療公司</div>
   <div class="intro-tag">微前端經驗 1 年</div>
 
+  <div class="intro-subhead">相關經歷</div>
   <div class="intro-highlights">
     <div class="intro-highlight">2025 iThome 鐵人賽佳作</div>
     <div class="intro-highlight">WebConf 網站開發人員</div>
@@ -24,13 +25,14 @@ layout: center
 .intro-wrap {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
-.intro-avatar-placeholder {
-  width: 180px;
-  height: 180px;
+.intro-avatar {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: #1e293b;
+  object-fit: cover;
+  object-position: center top;
   border: 2px solid #1e3a5f;
   flex-shrink: 0;
 }
@@ -61,11 +63,19 @@ layout: center
   margin-top: 0.2rem;
   align-self: flex-start;
 }
+.intro-subhead {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+  margin-top: 0.55rem;
+}
 .intro-highlights {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.8rem;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
 }
 .intro-highlight {
   font-size: 0.78rem;
