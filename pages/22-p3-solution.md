@@ -5,8 +5,8 @@ layout: none
 <div class="slide-wrap">
 
 <div class="slide-header">
-  <h1 class="slide-title">原本以為的解決方式：把樣式變成 component scoped css</h1>
-  <div class="slide-subtitle">改變 Tailwind 的撰寫方式，讓樣式跟著 component 的 JS 一起被 Module Federation 打包</div>
+  <h1 class="slide-title">風險方案：把 Tailwind 塞進 Component Scoped CSS</h1>
+  <div class="slide-subtitle">能讓 CSS 跟著 component JS 一起被 Module Federation 載入，但會受 Angular View Encapsulation 限制，存在樣式失效風險</div>
 </div>
 
 <div class="content-row">
@@ -18,7 +18,7 @@ layout: none
 
 <div class="mechanism-text">
 
-透過最外層 component 的 <code>styleUrl</code> 引用 <code>tailwind.css</code>，Angular 會把它編譯進該 component 的 JS chunk；Module Federation 透過 <code>remoteEntry.js</code> 解析後，再於 runtime 載入該 chunk，並套用 component-scoped 樣式。
+把 <code>tailwind.css</code> 放進最外層 component 的 <code>styleUrl</code>，Angular 會把這份 CSS 編進該 component 的 lazy chunk；當 Host 透過 <code>remoteEntry.js</code> 載入這個 component chunk 時，CSS 也會跟著 component 一起進入 runtime。
 
 </div>
 
@@ -33,7 +33,7 @@ layout: none
 
 <div class="mechanism-text mt-sm">
 
-MainLayoutComponent 被 lazy load 進路由時，連同它的 <code>styleUrl</code> 一起被打包：
+Lazy load 這個 component 時，<code>styleUrl</code> 會跟著 component 一起被打包：
 
 </div>
 
@@ -62,18 +62,18 @@ export const routes: Routes = [
 
 <div class="right-col">
 
-  <div class="section-card">
-    <div class="mini-label">期望：CSS 能跟著 component 的 JS 一起被載入</div>
+  <div v-click class="section-card">
+    <div class="mini-label">期望：CSS 跟著 component JS 一起被載入</div>
     <ul class="bullet-list">
-      <li>Module Federation 只看得到 JS，樣式已經藏在 JS 裡面，不需要額外 expose 或 import 任何 style module</li>
-      <li>走 Angular 自己的 ViewEncapsulation，每條規則自動帶 <code>_ngcontent-*</code> scope，樣式隔離是內建的，不用額外設計機制</li>
+      <li>Module Federation 仍以載入 JS chunk 為主，Tailwind CSS 透過 component <code>styleUrl</code> 進入該 chunk，不需要額外 expose 或 import style module</li>
+      <li>交由 Angular View Encapsulation 處理，每條規則自動帶 <code>_ngcontent-*</code> scope，樣式隔離是內建的，不用額外設計機制</li>
     </ul>
     <img src="/devtools-ngcontent.png" class="devtools-img devtools-img-top" />
   </div>
 
-  <div class="section-card mt-sm">
-    <div class="mini-label warn-label">結果</div>
-    <div class="result-text">外層的 scope css 沒辦法套用到嵌套的內層組件 css，<code>_ngcontent-*</code> scope 把每個 component 的樣式各自隔開，巢狀子元件用到的 Tailwind class 還是吃不到。</div>
+  <div v-click class="section-card mt-sm">
+    <div class="mini-label warn-label">風險</div>
+    <div class="result-text">Tailwind 放進 component <code>styleUrl</code> 後，會變成受 component 邊界限制的 scoped CSS，外層 component 本身能吃到，但子元件、動態內容、投影內容會落在邊界之外，吃不到 Tailwind 樣式。</div>
   </div>
 
 </div>

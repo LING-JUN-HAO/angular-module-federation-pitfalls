@@ -17,7 +17,7 @@ class: text-center
   <div class="summary-title">Secondary entry point 沒進 shared scope</div>
   <div class="summary-rule">
     <span class="rule-label">原則</span>
-在 <code>singleton</code> + <code>shared</code> 前提下，有狀態相依的子模組必須跟主模組從同一個來源生成，不能各自產生實例
+在 <code>singleton</code> + <code>shared</code> 前提下，有狀態相依的子模組必須與主模組共用同一個來源，不能各自產生實例
   </div>
 </div>
 </v-click>
@@ -28,7 +28,7 @@ class: text-center
   <div class="summary-title">Production optimization 打亂載入順序</div>
   <div class="summary-rule">
     <span class="rule-label">原則</span>
-Webpack optimize 階段會改變模組打包時機，有機會導致 shared dependency 的執行順序跑掉
+Webpack optimize 階段可能改變模組打包與執行順序，導致 shared dependency 的初始化時機與開發環境不同
   </div>
 </div>
 </v-click>
@@ -36,10 +36,10 @@ Webpack optimize 階段會改變模組打包時機，有機會導致 shared depe
 <v-click>
 <div class="summary-card">
   <div class="summary-problem accent-red">踩坑三</div>
-  <div class="summary-title">Tailwind class 沒進 Module Federation 的載入鏈</div>
+  <div class="summary-title">Tailwind CSS 沒進 Module Federation 的載入鏈</div>
   <div class="summary-rule">
     <span class="rule-label">取捨</span>
-    用 <code>ViewEncapsulation.None</code> 讓樣式跟著 JS 一起載入，換來的代價是失去 Angular 的 scope 隔離
+    用 <code>ViewEncapsulation.None</code> 可讓 Tailwind 跟著 component 生效，但要自行控管跨 Remote 的 Tailwind 設定一致性
   </div>
 </div>
 </v-click>
@@ -48,7 +48,7 @@ Webpack optimize 階段會改變模組打包時機，有機會導致 shared depe
 
 <v-click>
 <div class="mt-8 final-note">
-<span class="accent">微前端開發最大的難處，其實是開發用的 runtime 跟部署到 host 之後的 runtime 不一樣。</span>
+<span class="accent">Module Federation 最大的難點，是 Remote 在本地能跑，不代表進入 Host runtime 後仍然一樣</span>
 </div>
 </v-click>
 

@@ -5,8 +5,8 @@ layout: none
 <div class="slide-wrap">
 
 <div class="slide-header">
-  <h1 class="slide-title">Tailwind CSS 已產生，但未隨 Module Federation 載入</h1>
-  <div class="slide-subtitle">Remote 的 Tailwind CSS 確實存在，只是這份 CSS 沒有被綁進 Module Federation 的載入鏈</div>
+  <h1 class="slide-title">Remote 的 CSS 沒有被 Host 載入</h1>
+  <div class="slide-subtitle">Tailwind CSS 已成功產生，但沒有被 remoteEntry.js 引用，因此 Host 動態載入 Remote 時拿不到樣式</div>
 </div>
 
 <div class="content-row">
@@ -14,49 +14,56 @@ layout: none
 <div class="left-col">
 
   <div class="section-card">
-    <div class="mini-label warn-label">問題點：Remote styles.css 有產生，但沒有被匯出</div>
-    <div class="compare-row">
-      <div class="compare-col">
-        <div class="compare-head">Remote Build</div>
-        <div class="flow-step">Remote Source</div>
-        <div class="flow-step">Tailwind Scan</div>
-        <div class="flow-step broken">✕ Remote styles.css</div>
+    <div class="mini-label">CSS 產生成功，不代表 Host 會自動載入</div>
+    <div class="layer-row">
+      <div class="layer-block">
+        <div class="layer-label layer-ok">Build 層 — 沒問題</div>
+        <div class="flow-chain stack">
+          <div class="flow-step">Remote Source</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Tailwind 掃描 class</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step ok">styles.css 產生成功</div>
+        </div>
       </div>
-      <div class="compare-divider"></div>
-      <div class="compare-col">
-        <div class="compare-head">Module Federation</div>
-        <div class="flow-step">Expose Route</div>
-        <div class="flow-step">remoteEntry.js</div>
-        <div class="flow-step ok">Host 載入</div>
+      <div class="layer-block">
+        <div class="layer-label layer-warn">Federation 載入層 — 問題所在</div>
+        <div class="flow-chain stack">
+          <div class="flow-step">remoteEntry.js 只暴露 JS</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step broken">沒有引用 styles.css</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step broken">Host 載入 Remote 時<br>CSS 不會一起進來</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="conclusion-block">
-    <span class="conclusion-text">Remote styles.css 為獨立產物，未被納入 Module Federation 的載入流程</span>
+  <div v-click class="conclusion-block">
+    <span class="conclusion-text">styles.css 已經成功產生，但目前沒有被 remoteEntry.js 引用。因此 Host 動態載入 Remote JS 時，不會自動載入這份 CSS。</span>
   </div>
 
 </div>
 
 <div class="right-col">
 
-  <div class="section-card">
+  <div v-click class="section-card">
     <div class="mini-label">目標</div>
-    <div class="goal-core">Remote 載入時樣式自動生效，並維持樣式隔離</div>
+    <div class="goal-core">Remote 載入後，樣式也要跟著生效</div>
     <div class="goal-reasons">
-      <div class="goal-reason">— Remote 是動態載入的，各 remote 之間應保持獨立</div>
-      <div class="goal-reason">— Host 不需要、也不該掃描 remote 的 source 來補產 CSS</div>
+      <div class="goal-reason">CSS 要跟著 Remote 一起被載入</div>
+      <div class="goal-reason">Host 不需要手動維護 Remote 的 CSS</div>
     </div>
   </div>
 
-  <div class="section-card mt-3">
-    <div class="mini-label">思考方向：讓 CSS 跟著 remoteEntry.js 一起動態插入 host</div>
+  <div v-click class="section-card mt-3">
+    <div class="mini-label">解法方向：讓 CSS 跟著 remoteEntry.js 一起進入 Host</div>
     <div class="flow-chain stack">
-      <div class="flow-step">Remote 動態載入</div>
+      <div class="flow-step">Host 動態載入 Remote</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-step">CSS 一併打包進 remoteEntry.js</div>
+      <div class="flow-step">remoteEntry.js 需要帶上對應的 CSS</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-step ok">remoteEntry.js 把樣式動態插入 host</div>
+      <div class="flow-step ok">Remote 的樣式自動注入 Host</div>
     </div>
   </div>
 
@@ -122,6 +129,24 @@ layout: none
 }
 .warn-label { color: #f87171; }
 .mt-3 { margin-top: 1.1rem; }
+.layer-label {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.layer-ok { color: #4ade80; }
+.layer-warn { color: #f87171; }
+.layer-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+.layer-row .layer-block {
+  flex: 1;
+  min-width: 0;
+}
 
 .flow-chain {
   display: flex;
@@ -133,6 +158,18 @@ layout: none
   align-items: center;
   flex-wrap: wrap;
   gap: 0.45rem;
+}
+.flow-chain.horizontal.even {
+  flex-wrap: nowrap;
+}
+.flow-chain.horizontal.even .flow-step {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.flow-chain.horizontal.even .flow-arrow {
+  flex-shrink: 0;
+  padding-left: 0;
 }
 .flow-chain.compact .flow-step { font-size: 0.6rem; }
 .flow-step {
@@ -149,8 +186,9 @@ layout: none
 .flow-step.ok { color: #4ade80; border-color: #166534; background: #052e16; }
 .flow-step.broken { color: #f87171; border-color: #7f1d1d; background: #1e0a0a; }
 .flow-arrow {
-  font-size: 0.62rem;
-  color: #475569;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #7dd3fc;
   line-height: 1.3;
   padding: 0.25rem 0 0.25rem 0.85rem;
 }
@@ -229,11 +267,10 @@ layout: none
   padding: 0.25em 0.6em;
 }
 .conclusion-text {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #fca5a5;
-  white-space: nowrap;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .goal-core {
@@ -254,9 +291,18 @@ layout: none
   padding-left: 0.3rem;
 }
 .goal-reason {
+  position: relative;
   font-size: 0.64rem;
   color: #94a3b8;
   line-height: 1.55;
+  padding-left: 0.9rem;
+}
+.goal-reason::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #7dd3fc;
+  font-weight: 700;
 }
 
 

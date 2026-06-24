@@ -5,8 +5,8 @@ layout: none
 <div class="slide-wrap">
 
 <div class="slide-header">
-  <h1 class="slide-title">解決方案：加上 <code>ViewEncapsulation.None</code></h1>
-  <div class="slide-subtitle">讓 scoped css 本身變成全域樣式，巢狀的內層組件也能吃到外層的 Tailwind class</div>
+  <h1 class="slide-title">折衷方案：加上 <code>ViewEncapsulation.None</code></h1>
+  <div class="slide-subtitle">讓 Tailwind utilities 可套用到巢狀元件，但代價是失去 Angular 樣式隔離</div>
 </div>
 
 <div class="content-row">
@@ -18,7 +18,7 @@ layout: none
 
 <div class="mechanism-text">
 
-在最外層 component 加上 <code>encapsulation: ViewEncapsulation.None</code>，Angular 編譯時就不會再幫這份樣式加上 <code>_ngcontent-*</code> scope，原本被 scope 住的 CSS 規則會變成單純的全域 CSS。
+在最外層 component 加上 <code>ViewEncapsulation.None</code>，讓原本會被 Angular scope 的 component CSS，改以 global CSS 形式注入 runtime。這樣 Tailwind utilities 不再受 <code>\_ngcontent-\*</code> 限制，巢狀元件也能使用同一份 Tailwind 樣式。
 
 </div>
 
@@ -34,34 +34,35 @@ layout: none
 
   </div>
 
-  <div class="section-card mt-sm">
-    <div class="mini-label warn-label">代價</div>
+  <div v-click class="section-card mt-sm">
+    <div class="mini-label">折衷點</div>
     <div class="tradeoff-row">
       <div class="tradeoff-col">
-        <div class="tradeoff-head ok-text">得到</div>
-        <div class="tradeoff-item ok-item">✓ 巢狀元件可直接使用 Tailwind</div>
+        <div class="tradeoff-head ok-text">解決了</div>
+        <div class="tradeoff-item ok-item">✓ 巢狀元件可以使用 Tailwind</div>
       </div>
       <div class="tradeoff-col">
-        <div class="tradeoff-head warn-label">失去</div>
-        <div class="tradeoff-item warn-item">✗ CSS 變成 global CSS</div>
-        <div class="tradeoff-item warn-item">✗ 無法再依靠 Angular scope 隔離</div>
-        <div class="tradeoff-item warn-item">✗ 不同 remote 可能互相影響</div>
+        <div class="tradeoff-head note-label">需要注意</div>
+        <div class="tradeoff-item note-item">△ 依賴最外層 component 觸發樣式注入</div>
+        <div class="tradeoff-item note-item">△ 多個 Remote 需要統一 Tailwind config</div>
+        <div class="tradeoff-item note-item">△ 相同 utilities 可能重複注入</div>
       </div>
     </div>
+    <div class="mitigation-note">可快速落地，但需要控管跨 Remote 的 Tailwind 載入與設定一致性。</div>
   </div>
 
 </div>
 
 <div class="right-col">
 
-  <div class="section-card">
+  <div v-click class="section-card">
     <div class="mini-label">為什麼有效</div>
     <div class="effect-flow">
       <div class="effect-node">MainLayoutComponent<br><span class="effect-sub">(ViewEncapsulation.None)</span></div>
       <div class="effect-arrow">↓</div>
       <div class="effect-node global"><code>.flex</code> <code>.mt-4</code> <code>.bg-primary</code><br><span class="effect-sub">變成 global CSS</span></div>
       <div class="effect-arrow">↓</div>
-      <div class="effect-node ok">HomeComponent / PlaceComponent / DialogComponent ...<br><span class="effect-sub">全部可存取</span></div>
+      <div class="effect-node ok">HomeComponent / PlaceComponent / ...<br><span class="effect-sub">全部可存取</span></div>
     </div>
     <div class="result-text ok-text">Tailwind utilities 不再被 <code>_ngcontent-*</code> 限制。</div>
   </div>
@@ -237,4 +238,19 @@ layout: none
 }
 .ok-item { color: #94a3b8; }
 .warn-item { color: #fca5a5; }
+.note-label { color: #fbbf24; }
+.note-item { color: #cbd5e1; }
+.mitigation-note {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #1e293b;
+  font-size: 0.58rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+.mitigation-note code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.54rem;
+  color: #a5b4fc;
+}
 </style>

@@ -5,8 +5,8 @@ layout: none
 <div class="slide-wrap">
 
 <div class="slide-header">
-  <h1 class="slide-title">處理方式：關閉 webpack production <code>concatenateModules</code></h1>
-  <div class="slide-subtitle">先用簡化模型說明機制，再回頭對照 dist 產物確認現象一致</div>
+  <h1 class="slide-title">處理方式：關閉 <code>concatenateModules</code>，穩定 shared module 初始化順序</h1>
+  <div class="slide-subtitle">左邊用最小模型重現錯誤型態，右邊對照 dist 確認錯誤發生在 shared module 初始化階段</div>
 </div>
 
 <div class="content-row">
@@ -14,12 +14,14 @@ layout: none
 <div class="left-col">
 
 <div>
-  <div class="mini-label">最小模型：兩個互相依賴的模組</div>
+  <div class="mini-label">最小模型：class 繼承依賴跨 module</div>
 
 ```ts
 // A: rxjs base
 export class Subscriber {}
+```
 
+```ts
 // B: rxjs/operators
 import { Subscriber } from "./A";
 export class OperatorSubscriber extends Subscriber {}
@@ -28,20 +30,71 @@ export class OperatorSubscriber extends Subscriber {}
 </div>
 
 <div v-click>
-  <div class="mini-label mt-3 warn-label">啟用 concatenateModules 後的風險</div>
+  <div class="mini-label mt-3 warn-label">webpack runtime 模擬：module wrapper 合併後的 exports 時序</div>
+  <div class="bridge-note">上面的 import/export，webpack 編譯後實際變成這樣：</div>
 
 ```ts
-class OperatorSubscriber extends Subscriber {}
+// 正常順序：A 先把 Subscriber 放進 exports 箱子，B 再拿
+var moduleA = { exports: {} };
+class Subscriber {}
+moduleA.exports.Subscriber = Subscriber;
+
+class OperatorSubscriber extends moduleA.exports.Subscriber {}
 ```
 
-  <div class="explain-box explain-warn">scope hoisting 不會改變 ES module 的依賴執行順序，但會合併模組邊界；在 shared module 載入路徑上，原本不容易觀察到的初始化時序問題可能因此浮現，進而拋出 <code>Class extends value undefined</code>。</div>
+```ts
+// 錯誤順序（賦值動作被排到後面）：B 太早執行，箱子還是空的
+var moduleA = { exports: {} };
 
-  <div class="model-note">示意：簡化模型，非逐行對應實際 dist 程式碼</div>
+class OperatorSubscriber extends moduleA.exports.Subscriber {}
+// moduleA.exports.Subscriber === undefined → Class extends value undefined
+
+// class Subscriber {} 跟 moduleA.exports.Subscriber = Subscriber
+// 被排到下面才執行，這裡已經來不及了
+```
 
 </div>
 
-<div v-click>
-  <div class="mini-label mt-3 fix-label">解決方式：webpack 設定關閉 concatenateModules 優化設定</div>
+</div>
+
+<div class="right-col">
+
+  <div class="img-label">對照 dist：shared module 是在哪個階段初始化的</div>
+
+<div class="trace-steps">
+  <div v-click class="trace-step">
+    <div class="trace-num">1</div>
+    <div class="trace-body">
+      <div class="trace-title">main.js 啟動後，先完成 bootstrap → shared scope 註冊 → remoteEntry.js 宣告</div>
+      <div class="trace-detail">才輪到 app code；<code>rxjs</code> / <code>rxjs/operators</code> 都走這條 shared 載入流程</div>
+    </div>
+  </div>
+  <div v-click class="trace-step">
+    <div class="trace-num">2</div>
+    <div class="trace-body">
+      <div class="trace-title">shared module 初始化時，class 繼承依賴必須已就緒</div>
+      <div class="trace-detail"><code>OperatorSubscriber extends Subscriber</code> 需要 <code>Subscriber</code> 已完成初始化</div>
+    </div>
+  </div>
+  <div v-click class="trace-step">
+    <div class="trace-num">3</div>
+    <div class="trace-body">
+      <div class="trace-title">concatenateModules 讓 module wrapper 被合併</div>
+      <div class="trace-detail">scope hoisting 後，原本分開的初始化邊界變得更敏感</div>
+    </div>
+  </div>
+  <div v-click class="trace-step">
+    <div class="trace-num">4</div>
+    <div class="trace-body trace-body-err">
+      <div class="trace-title trace-title-err">因此錯誤發生在 shared module 初始化階段：<code>Class extends value undefined</code></div>
+      <div class="trace-detail">對照兩份 dist 確認：關閉 concatenateModules 後，這條時序路徑不再出現</div>
+    </div>
+  </div>
+</div>
+
+<v-click>
+<div class="fix-block">
+  <div class="fix-block-label">解法</div>
 
 ```ts {2}
 optimization: {
@@ -50,47 +103,12 @@ optimization: {
 ```
 
 </div>
+</v-click>
 
-</div>
+<v-click>
+<div class="tl-ruling">結論：這不是修正原始碼依賴，而是讓 production dist 的 shared module 初始化流程回到較可預測的狀態。<span class="tl-cost">代價：bundle 可能略大；換回較可預測的 shared module 載入路徑。</span></div>
+</v-click>
 
-<div v-click>
-<div class="right-col">
-
-  <div class="img-label">對回實際 dist 產物</div>
-  <div class="trace-steps">
-    <div class="trace-step">
-      <div class="trace-num">1</div>
-      <div class="trace-body">
-        <div class="trace-title">Production 啟動流程不是同步執行</div>
-        <div class="trace-detail"><code>main.*.js</code> 不是直接執行 app，而是先載入 bootstrap chunk，才進入後續初始化流程</div>
-      </div>
-    </div>
-    <div class="trace-step">
-      <div class="trace-num">2</div>
-      <div class="trace-body">
-        <div class="trace-title">Shared module 需要額外初始化</div>
-        <div class="trace-detail"><code>remoteEntry.js</code> 內可見 <code>rxjs</code> / <code>rxjs/operators</code> 都要經過 shared 載入流程，不會跟主程式同步完成初始化</div>
-      </div>
-    </div>
-    <div class="trace-step">
-      <div class="trace-num">3</div>
-      <div class="trace-body">
-        <div class="trace-title">錯誤發生在 shared 載入路徑上</div>
-        <div class="trace-detail">原本出錯的 production build 中，<code>rxjs/operators</code> 走一條獨立的 shared 初始化路徑；<code>Class extends value undefined</code> 就是沿著這條路徑發生的</div>
-      </div>
-    </div>
-    <div class="trace-step">
-      <div class="trace-num">4</div>
-      <div class="trace-body">
-        <div class="trace-title">對照 dist 確認：問題出在 shared module 初始化順序</div>
-        <div class="trace-detail">比對兩份 dist 的執行順序後確認：關閉 <code>concatenateModules</code> 後，shared module 的切分回到可預期的邊界，原本提前被引用、尚未初始化的時序路徑不再出現</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tl-ruling">代價：scope hoisting 透過合併 closure 減少 module wrapper 與 runtime 開銷，關閉後 bundle 通常會略大；但能換回較可預測的 shared module 載入與初始化路徑。</div>
-
-</div>
 </div>
 
 </div>
@@ -125,7 +143,7 @@ optimization: {
 }
 .content-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 2rem;
   flex: 1;
   min-height: 0;
@@ -139,7 +157,7 @@ optimization: {
 .right-col {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.6rem;
   min-height: 0;
   overflow: hidden;
 }
@@ -151,42 +169,27 @@ optimization: {
   color: #94a3b8;
   margin-bottom: 0.25rem;
 }
-.warn-label { color: #f87171; }
+.warn-label { color: #f59e0b; }
 .fix-label { color: #4ade80; }
-.explain-box {
-  font-size: 0.56rem;
+.mt-3 { margin-top: 0.55rem; }
+.bridge-note {
+  font-size: 0.58rem;
   color: #94a3b8;
-  line-height: 1.8;
-  padding: 0.45rem 0.65rem;
-  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  margin-top: 0.2rem;
   margin-bottom: 0.35rem;
 }
-.explain-box code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.6rem;
-  color: #a5b4fc;
-}
-.explain-warn {
-  background: #1e0a0a;
-  border-left: 2px solid #f87171;
-  margin-top: 0.6rem;
-  margin-bottom: 0;
-}
-.model-note {
-  font-size: 0.56rem;
-  color: #94a3b8;
-  margin-top: 0.25rem;
-  font-style: italic;
-}
-.mt-3 { margin-top: 0.55rem; }
 .left-col pre {
-  font-size: 0.62rem !important;
+  font-size: 0.6rem !important;
   line-height: 1.5 !important;
   margin: 0 !important;
   border-radius: 6px !important;
 }
 .left-col pre code {
-  font-size: 0.62rem !important;
+  font-size: 0.6rem !important;
+}
+.left-col pre + pre {
+  margin-top: 0.4rem !important;
 }
 .img-label {
   font-size: 0.56rem;
@@ -196,12 +199,13 @@ optimization: {
   color: #94a3b8;
   border-bottom: 1px solid #1e293b;
   padding-bottom: 0.3rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+  flex-shrink: 0;
 }
 .trace-steps {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 .trace-step {
   display: flex;
@@ -209,13 +213,13 @@ optimization: {
   align-items: flex-start;
 }
 .trace-num {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
   border-radius: 50%;
   background: #1e293b;
   border: 1px solid #334155;
   color: #94a3b8;
-  font-size: 0.5rem;
+  font-size: 0.48rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -225,29 +229,69 @@ optimization: {
 }
 .trace-body { flex: 1; }
 .trace-title {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #cbd5e1;
   margin-bottom: 0.1rem;
 }
-.trace-detail {
+.trace-title code {
+  font-family: 'Fira Code', monospace;
   font-size: 0.58rem;
+  color: #a5b4fc;
+}
+.trace-title-err { color: #f87171; }
+.trace-detail {
+  font-size: 0.55rem;
   color: #94a3b8;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 .trace-detail code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.54rem;
+  font-size: 0.53rem;
   color: #a5b4fc;
 }
+.fix-block {
+  background: #0a1f12;
+  border: 1px solid #14532d;
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  flex-shrink: 0;
+}
+.fix-block-label {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+  margin-bottom: 0.3rem;
+}
+.fix-block pre {
+  font-size: 0.58rem !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+  border-radius: 6px !important;
+}
 .tl-ruling {
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 600;
   color: #e2e8f0;
-  line-height: 1.7;
-  padding: 0.6rem 0.85rem;
+  line-height: 1.65;
+  padding: 0.55rem 0.8rem;
   background: #0f172a;
   border-left: 3px solid #7dd3fc;
   border-radius: 0 6px 6px 0;
+  flex-shrink: 0;
+}
+.tl-ruling code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.54rem;
+  color: #7dd3fc;
+}
+.tl-cost {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.54rem;
+  font-weight: 500;
+  color: #94a3b8;
 }
 </style>

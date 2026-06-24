@@ -19,46 +19,46 @@ layout: none
       <div class="tl-line"></div>
     </div>
     <div class="tl-content">
-      <div class="tl-label">先跟 AI 一起瘋狂跑 build</div>
-      <div class="tl-body">一開始其實沒什麼明確線索，只能一路 build、一路比對產物，從 chunk id 追到 remoteEntry.js，慢慢把可疑範圍收斂下來。</div>
+      <div class="tl-label">先和 AI 一起比對 build 產物</div>
+      <div class="tl-body">一開始沒有明確線索，我們先反覆 build、比對 dist，從 chunk id 追到 remoteEntry.js，逐步收斂可疑範圍。</div>
     </div>
   </div>
 
-  <div class="tl-item">
+  <div v-click class="tl-item">
     <div class="tl-step">
       <div class="tl-num">2</div>
       <div class="tl-line"></div>
     </div>
     <div class="tl-content">
-      <div class="tl-label">繞了一圈，最後還真的是它</div>
-      <div class="tl-body">中間試了不少方向，但線索最後慢慢收斂到 scope hoisting，而且確實被實驗驗證出來了。</div>
+      <div class="tl-label">線索逐漸收斂到 scope hoisting</div>
+      <div class="tl-body">中間嘗試過多個方向，但最後從 dist 差異與實驗結果確認，問題確實和 concatenateModules 造成的 scope hoisting 有關。</div>
     </div>
   </div>
 
-  <div class="tl-item">
+  <div v-click class="tl-item">
     <div class="tl-step">
       <div class="tl-num">3</div>
       <div class="tl-line"></div>
     </div>
     <div class="tl-content">
-      <div class="tl-label">結果後來翻到一篇問題相似的 Issue</div>
-      <div class="tl-body">找到 <code>angular-architects/module-federation-plugin#1053</code> 時有點傻眼，錯誤訊息跟版本組合都跟我們幾乎一致。</div>
+      <div class="tl-label">後來找到一篇高度相似的 Issue</div>
+      <div class="tl-body">後續查到 <code>angular-architects/module-federation-plugin#1053</code>，其中的錯誤訊息與版本組合都和我們的情境高度吻合，讓問題方向更加明確。</div>
     </div>
   </div>
 
-  <div class="tl-item last">
+  <div v-click class="tl-item last">
     <div class="tl-step">
       <div class="tl-num">4</div>
     </div>
     <div class="tl-content">
-      <div class="tl-label">下次應該先搜 Issue 再說</div>
-      <div class="tl-body">build 驗證當然有價值，但如果一開始就看到這篇，應該可以少跑好幾輪 build。</div>
+      <div class="tl-label">下次可以更早檢查相關 Issue</div>
+      <div class="tl-body">build 驗證當然有價值，但若一開始就找到這類高度相似的案例，應該可以少繞幾輪、也更快鎖定方向。</div>
     </div>
   </div>
 
 </div>
 
-<div class="right-col">
+<div v-click class="right-col">
   <img src="/issue-1053.png" class="issue-img" />
   <a class="issue-link" href="https://github.com/angular-architects/module-federation-plugin/issues/1053" target="_blank">@angular-architects/module-federation Issue #1053</a>
   <div class="ai-note">AI 或許足夠強大，但也不要忘記我們還有社群的經驗可以借鏡。</div>

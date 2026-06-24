@@ -1,7 +1,7 @@
 ---
 theme: default
 colorSchema: dark
-transition: slide-left
+transition: fade-out
 lineNumbers: false
 contextMenu: false
 fonts:
