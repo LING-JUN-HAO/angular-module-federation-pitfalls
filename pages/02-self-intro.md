@@ -7,7 +7,7 @@ layout: center
 <img src="/profile.jpg" class="intro-avatar" />
 
 <div class="intro-text">
-  <div class="intro-name">Antonio</div>
+  <div class="intro-name">Antonio（安東尼）</div>
   <div class="intro-role">前端工程師 · 新創醫療公司</div>
   <div class="intro-tag">微前端經驗 1 年</div>
 
