@@ -3,7 +3,7 @@ layout: center
 class: text-center
 ---
 
-<div class="mb-6">
+<div class="mb-3">
   <span class="part-badge">總結</span>
 </div>
 

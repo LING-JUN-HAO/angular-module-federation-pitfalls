@@ -116,5 +116,9 @@ src: ./pages/25-summary.md
 ---
 
 ---
-src: ./pages/26-thanks.md
+src: ./pages/26-extended-thoughts.md
+---
+
+---
+src: ./pages/27-thanks.md
 ---
