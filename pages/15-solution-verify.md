@@ -29,6 +29,8 @@ loadRemoteModule({ ... }).then((m) => m.routes);
 
 </div>
 
+<div class="timing-note">Host 先載入 <code>@angular/core/rxjs-interop</code>，確保 shared scope 有註冊。</div>
+
 <div class="code-block">
   <div class="code-header">
     <span class="file-label">host/src/main.ts</span>
@@ -51,8 +53,6 @@ import("./bootstrap").then(() => {
 ```
 
 </div>
-
-<div class="timing-note">透過 side effect import 明確引用 <code>@angular/core/rxjs-interop</code>，讓它進入 Host 的 dependency graph；若同時被設定為 shared，webpack 會在 shared scope 初始化後註冊此 secondary entry point，供 runtime 進行版本協商與共用。</div>
 
 </div>
 
@@ -177,7 +177,8 @@ import("./bootstrap").then(() => {
   border: 1px solid #1e3a5f;
   border-left: 3px solid #3b82f6;
   border-radius: 6px;
-  padding: 0.45rem 0.7rem;
+  padding: 0.25rem 0.7rem;
+  margin: 0.3rem 0;
 }
 .field-legend {
   display: flex;

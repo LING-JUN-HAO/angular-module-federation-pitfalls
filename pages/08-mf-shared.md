@@ -58,12 +58,12 @@ layout: default
       <span class="option-desc">優先使用單一套件實例，避免同一套件被重複初始化</span>
     </div>
     <div class="option-row">
-      <span class="option-key">strictVersion</span>
-      <span class="option-desc">版本不符時直接拋出錯誤，而非自動降級或使用不相容版本</span>
-    </div>
-    <div class="option-row">
       <span class="option-key">requiredVersion</span>
       <span class="option-desc">指定可接受的版本範圍，Runtime 依此判斷與對方版本是否可共用</span>
+    </div>
+    <div class="option-row">
+      <span class="option-key">strictVersion</span>
+      <span class="option-desc">版本不符時直接拋出錯誤，而非自動降級或使用不相容版本</span>
     </div>
   </div>
 </div>

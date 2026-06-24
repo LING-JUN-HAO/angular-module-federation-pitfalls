@@ -22,7 +22,7 @@ class: text-center
 
 <div class="think-card">
   <div class="think-num">思考二</div>
-  <div class="think-q">子應用之間怎麼說話？</div>
+  <div class="think-q">子應用之間怎麼溝通？</div>
   <div class="think-body">可以用 Custom Event、Event Bus，也可以讓 Host 當中介。</div>
   <div class="think-point"><span class="point-label">重點是：</span>事件名稱、資料格式、誰負責解除監聽，都要先約好。</div>
 </div>

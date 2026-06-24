@@ -5,80 +5,62 @@ layout: none
 <div class="slide-wrap">
 
 <div class="slide-header">
-  <h1 class="slide-title">風險方案：把 Tailwind 塞進 Component Scoped CSS</h1>
-  <div class="slide-subtitle">能讓 CSS 跟著 component JS 一起被 Module Federation 載入，但會受 Angular View Encapsulation 限制，存在樣式失效風險</div>
+  <h1 class="slide-title">風險：Tailwind 進入 Component Scoped CSS</h1>
+  <div class="slide-subtitle">CSS 可以跟著 component JS 載入，但也會被 Angular View Encapsulation 限制</div>
 </div>
 
 <div class="content-row">
 
 <div class="left-col">
 
-  <div class="section-card">
-    <div class="mini-label">機制</div>
-
-<div class="mechanism-text">
-
-把 <code>tailwind.css</code> 放進最外層 component 的 <code>styleUrl</code>，Angular 會把這份 CSS 編進該 component 的 lazy chunk；當 Host 透過 <code>remoteEntry.js</code> 載入這個 component chunk 時，CSS 也會跟著 component 一起進入 runtime。
-
+<div class="section-card">
+<div class="mini-label">機制</div>
+<div class="flow-chain stack">
+  <div class="flow-step">tailwind.css 放進最外層 component 的 styleUrl</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step">Angular 編進該 component 的 lazy chunk</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step note">CSS 成功進 runtime，但不是全域 CSS</div>
 </div>
 
-```ts {4}
+```ts {2}
 @Component({
-  selector: 'app-main-layout',
-  imports: [...],
   styleUrl: './tailwind.css',
-  templateUrl: './main-layout.component.html',
 })
 ```
 
-<div class="mechanism-text mt-sm">
-
-Lazy load 這個 component 時，<code>styleUrl</code> 會跟著 component 一起被打包：
-
 </div>
-
-```ts {2-15}
-export const routes: Routes = [
-  {
-    path: "main",
-    loadComponent: () =>
-      import("./main-layout/main-layout.component").then(
-        (m) => m.MainLayoutComponent,
-      ),
-    children: [
-      {
-        path: "",
-        loadComponent: () =>
-          import("./home/home.component").then((m) => m.HomeComponent),
-      },
-    ],
-  },
-];
-```
-
-  </div>
 
 </div>
 
 <div class="right-col">
 
   <div v-click class="section-card">
-    <div class="mini-label">期望：CSS 跟著 component JS 一起被載入</div>
-    <ul class="bullet-list">
-      <li>Module Federation 仍以載入 JS chunk 為主，Tailwind CSS 透過 component <code>styleUrl</code> 進入該 chunk，不需要額外 expose 或 import style module</li>
-      <li>交由 Angular View Encapsulation 處理，每條規則自動帶 <code>_ngcontent-*</code> scope，樣式隔離是內建的，不用額外設計機制</li>
-    </ul>
+    <div class="compare-stack">
+      <div class="compare-item">
+        <div class="mini-label">期望</div>
+        <div class="compare-text">CSS 透過 styleUrl 跟著 JS chunk 一起載入</div>
+      </div>
+      <div class="compare-item">
+        <div class="mini-label warn-label">實際</div>
+        <div class="compare-text">Angular 會加上 <code>_ngcontent-*</code> scope<br>Tailwind utilities 被限制在該 component 內</div>
+      </div>
+    </div>
     <img src="/devtools-ngcontent.png" class="devtools-img devtools-img-top" />
-  </div>
-
-  <div v-click class="section-card mt-sm">
-    <div class="mini-label warn-label">風險</div>
-    <div class="result-text">Tailwind 放進 component <code>styleUrl</code> 後，會變成受 component 邊界限制的 scoped CSS，外層 component 本身能吃到，但子元件、動態內容、投影內容會落在邊界之外，吃不到 Tailwind 樣式。</div>
+    <div class="consequence-text">→ 子元件 / 動態內容 / 投影內容可能吃不到 Tailwind 樣式</div>
   </div>
 
 </div>
 
 </div>
+
+<v-click>
+<div class="warning-block">
+  <div class="mini-label warn-label">風險</div>
+  <div class="result-text"><span class="risk-hl">Tailwind 不再是全域 utility layer</span>，而是被限制在該 component 的 scoped CSS。<br>外層 component 吃得到；但<span class="risk-hl">子元件、動態內容、投影內容</span>可能吃不到。</div>
+</div>
+</v-click>
+
 </div>
 
 <style>
@@ -86,7 +68,7 @@ export const routes: Routes = [
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  padding: 1.8rem 2.5rem 1.3rem 2.5rem;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -141,74 +123,79 @@ export const routes: Routes = [
   margin-bottom: 0.5rem;
 }
 .warn-label { color: #f87171; }
-.mt-sm { margin-top: 0.7rem; }
-.result-text {
-  font-size: 0.62rem;
-  color: #fca5a5;
-  line-height: 1.6;
+
+.flow-chain.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0.6rem;
 }
-.result-text code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.56rem;
-  color: #f87171;
+.flow-step {
+  font-size: 0.6rem;
+  color: #cbd5e1;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.flow-step.note {
+  color: #93c5fd;
+  border-color: #1e3a5f;
+  background: #0c1a30;
+}
+.flow-arrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  text-align: center;
+  padding: 0.15rem 0;
 }
 
-.mechanism-text {
-  font-size: 0.62rem;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-}
-.mechanism-text.mt-sm {
-  margin-top: 0.6rem;
-}
 .section-card pre {
-  font-size: 0.46rem !important;
+  font-size: 0.42rem !important;
   line-height: 1.3 !important;
   margin: 0 !important;
   border-radius: 6px !important;
   max-width: 100% !important;
-  max-height: 12rem !important;
-  overflow: auto !important;
 }
-.mechanism-text code {
+
+.compare-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.compare-item {
+  flex: 1;
+  min-width: 0;
+}
+.compare-text {
+  font-size: 0.62rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+.compare-text code {
   font-family: 'Fira Code', monospace;
   font-size: 0.56rem;
   color: #a5b4fc;
 }
-
-.bullet-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.bullet-list li {
-  position: relative;
-  padding-left: 0.9rem;
-  font-size: 0.6rem;
-  color: #94a3b8;
-  line-height: 1.55;
-}
-.bullet-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #475569;
-}
-.bullet-list code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.54rem;
-  color: #a5b4fc;
-}
 .devtools-img-top {
-  margin-top: 0.7rem;
+  margin-top: 0.2rem;
+}
+.consequence-text {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #f87171;
+  line-height: 1.5;
+  margin-top: 0.55rem;
+}
+.consequence-text code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.56rem;
+  color: #fca5a5;
 }
 .devtools-img {
   width: 100%;
@@ -216,5 +203,23 @@ export const routes: Routes = [
   border-radius: 6px;
   border: 1px solid #1e293b;
   display: block;
+}
+
+.warning-block {
+  margin-top: 0.9rem;
+  background: linear-gradient(135deg, #1e0a0a 0%, #0b1222 100%);
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
+  padding: 0.8rem 1.1rem;
+  flex-shrink: 0;
+}
+.result-text {
+  font-size: 0.68rem;
+  color: #fca5a5;
+  line-height: 1.6;
+}
+.risk-hl {
+  font-weight: 700;
+  color: #f87171;
 }
 </style>

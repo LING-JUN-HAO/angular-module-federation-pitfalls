@@ -24,7 +24,6 @@ layout: default
   </div>
 </div>
 
-<v-click>
 <div class="mt-5 compare-wrap">
 
   <!-- 左：單體 -->
@@ -84,7 +83,6 @@ layout: default
   </div>
 
 </div>
-</v-click>
 
 <style>
 .concept-card {

@@ -57,13 +57,15 @@ layout: none
   </div>
 
   <div v-click class="section-card mt-3">
-    <div class="mini-label">解法方向：讓 CSS 跟著 remoteEntry.js 一起進入 Host</div>
+    <div class="mini-label">解法方向：讓 Remote 入口模組主動帶上 CSS</div>
     <div class="flow-chain stack">
-      <div class="flow-step">Host 動態載入 Remote</div>
+      <div class="flow-step">Host 動態載入 Remote JS</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-step">remoteEntry.js 需要帶上對應的 CSS</div>
+      <div class="flow-step">Remote expose 的入口模組 import / 注入自己的 CSS</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-step ok">Remote 的樣式自動注入 Host</div>
+      <div class="flow-step">CSS link 或 style tag 被加入 Host document</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step ok">Remote 樣式在 Host 中生效</div>
     </div>
   </div>
 

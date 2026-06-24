@@ -7,7 +7,7 @@ layout: default
 <div class="body-wrap">
   <div class="roles-section">
     <div class="role-card host-card">
-      <div class="role-badge host-badge">Host</div>
+      <div class="role-badge host-badge">主應用（Host）</div>
       <div class="role-title">應用入口與整合層</div>
       <div class="role-desc">根據路由或需求，在 Runtime 動態載入 Remote 公開的模組</div>
     </div>

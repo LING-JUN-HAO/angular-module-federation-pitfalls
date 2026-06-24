@@ -28,7 +28,7 @@ layout: none
       </div>
     </div>
     <div class="inst-zone bundle-zone">
-      <div class="zone-title">Remote bundle（本地）</div>
+      <div class="zone-title">Remote bundle</div>
       <div class="zone-pkg">
         <span class="pkg-dot yellow-dot"></span>
         <code class="pkg-long">@angular/core/rxjs-interop</code>
