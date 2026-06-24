@@ -163,7 +163,7 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
 }
 .config-note {
   font-size: 0.52rem;

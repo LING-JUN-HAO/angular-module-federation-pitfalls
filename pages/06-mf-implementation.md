@@ -10,7 +10,6 @@ layout: default
     <div class="intro-line-gap">核心都在處理同一件事：<span class="accent">如何將多個獨立前端應用組合成一個完整系統，同時維持各自的開發與部署邊界</span></div>
   </div>
   <div class="other-methods">
-    <v-clicks>
     <div class="method-card">
       <div class="method-name">iframe</div>
       <div class="method-pro"><span class="label-pro">優</span>完全隔離、技術棧不限</div>
@@ -34,10 +33,8 @@ layout: default
       <div class="method-con"><span class="label-con">缺</span>缺少標準化框架支援</div>
       <div class="method-con"><span class="label-con">缺</span>版本與載入錯誤需自行處理</div>
     </div>
-    </v-clicks>
   </div>
 
-  <v-click>
   <div class="intro-line">
     而 <span class="accent">Webpack Module Federation</span> 更進一步，能在 <span class="accent">Runtime</span> 階段協商依賴版本，讓多個應用在版本相容時共享同一份模組實例，避免重複初始化與執行。
   </div>
@@ -99,7 +96,6 @@ layout: default
       </div>
     </div>
   </div>
-  </v-click>
 </div>
 
 <style>
@@ -112,7 +108,7 @@ layout: default
 }
 .intro-line {
   font-size: 0.78rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.5;
   flex-shrink: 0;
 }
@@ -121,7 +117,7 @@ layout: default
 }
 .wmf-bridge {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.5;
   flex-shrink: 0;
 }

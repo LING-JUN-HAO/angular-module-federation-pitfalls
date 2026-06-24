@@ -46,6 +46,6 @@ class: text-center
 }
 .pit-hint {
   font-size: 0.75rem;
-  color: #475569;
+  color: #94a3b8;
 }
 </style>

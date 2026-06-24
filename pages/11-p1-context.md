@@ -4,7 +4,7 @@ layout: default
 
 # 前情提要：Secondary Entry Points
 
-<div class="mt-2 mb-5 text-sm" style="color: #64748b;">
+<div class="mt-2 mb-5 text-sm" style="color: #cbd5e1;">
   大型套件常透過多個子路徑提供功能，開發者可按需匯入特定模組
 </div>
 
@@ -66,7 +66,7 @@ layout: default
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.4rem;
 }
 .pkg-name {
@@ -78,7 +78,7 @@ layout: default
 }
 .pkg-desc {
   font-size: 0.6rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.5;
 }
 .arrow-col {
@@ -99,7 +99,7 @@ layout: default
   position: absolute;
   right: -6px;
   top: -10px;
-  color: #475569;
+  color: #94a3b8;
   font-size: 0.8rem;
 }
 .arrow-label {
@@ -139,7 +139,7 @@ layout: default
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   background: #1e293b;
   border-radius: 3px;
   padding: 0.1em 0.45em;
@@ -197,7 +197,7 @@ layout: default
   display: block;
   margin-top: 0.5rem;
   font-size: 0.62rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 2;
   border-top: 1px solid #1e293b;
   padding-top: 0.5rem;

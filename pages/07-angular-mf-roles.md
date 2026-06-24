@@ -120,13 +120,13 @@ layout: default
 }
 .arrow-body {
   font-size: 1.4rem;
-  color: #334155;
+  color: #94a3b8;
   line-height: 1;
 }
 .section-label {
   font-size: 0.58rem;
   font-weight: 700;
-  color: #334155;
+  color: #94a3b8;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   flex-shrink: 0;
@@ -181,7 +181,7 @@ layout: default
 }
 .param-desc {
   font-size: 0.67rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.55;
 }
 .params-divider {

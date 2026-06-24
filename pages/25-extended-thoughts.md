@@ -46,7 +46,7 @@ class: text-center
 <style>
 .think-subtitle {
   font-size: 0.8rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.7;
   max-width: 640px;
   margin: 1rem auto 0;
@@ -89,7 +89,7 @@ class: text-center
 }
 .think-point {
   font-size: 0.72rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
   border-top: 1px solid #1e293b;
   padding-top: 0.5rem;
@@ -101,7 +101,7 @@ class: text-center
 }
 .final-note {
   font-size: 0.85rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.8;
 }
 </style>

@@ -67,7 +67,7 @@ layout: center
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-top: 0.55rem;
 }
 .intro-highlights {

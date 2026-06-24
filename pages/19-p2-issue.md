@@ -86,7 +86,7 @@ layout: none
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -147,7 +147,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.3rem;
   margin-top: 0.15rem;
 }

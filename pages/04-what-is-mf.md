@@ -10,24 +10,18 @@ layout: default
 </div>
 
 <div class="mt-5 grid grid-cols-3 gap-4">
-  <v-click>
   <div class="concept-card">
     <div class="concept-title">概念來源</div>
     <div class="concept-desc">借鑑微服務（Microservices）架構，以功能（vertical slice）為單位劃分責任</div>
   </div>
-  </v-click>
-  <v-click>
   <div class="concept-card">
     <div class="concept-title">組織對齊</div>
     <div class="concept-desc">讓門診團隊、批價團隊、掛號團隊各自擁有端到端的開發與部署能力</div>
   </div>
-  </v-click>
-  <v-click>
   <div class="concept-card">
     <div class="concept-title">獨立部署</div>
     <div class="concept-desc">批價模組更新不影響門診，掛號上版不需等其他功能，各自獨立發布</div>
   </div>
-  </v-click>
 </div>
 
 <v-click>
@@ -130,13 +124,13 @@ layout: default
 }
 .arrow-icon {
   font-size: 1.8rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1;
 }
 .arrow-label {
   font-size: 0.62rem;
   font-weight: 700;
-  color: #334155;
+  color: #94a3b8;
   letter-spacing: 0.06em;
 }
 
@@ -186,7 +180,7 @@ layout: default
 .container-sub {
   font-size: 0.6rem;
   font-weight: 400;
-  color: #374151;
+  color: #94a3b8;
   letter-spacing: 0;
 }
 
@@ -212,7 +206,7 @@ layout: default
 }
 .mf-team-tag {
   font-size: 0.6rem;
-  opacity: 0.55;
+  opacity: 0.85;
   white-space: nowrap;
 }
 .deploy-badge {

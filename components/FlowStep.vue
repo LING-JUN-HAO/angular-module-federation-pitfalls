@@ -77,7 +77,7 @@ defineProps<{
 }
 
 .flow-arrow {
-  color: #475569;
+  color: #94a3b8;
   font-size: 1.3rem;
   padding: 0 0.3rem;
   align-self: center;

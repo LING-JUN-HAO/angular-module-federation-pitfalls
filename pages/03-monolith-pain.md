@@ -4,12 +4,11 @@ layout: default
 
 # 單體架構的痛點
 
-<div class="mt-2 text-sm" style="color: #64748b;">
+<div class="mt-2 text-sm" style="color: #cbd5e1;">
   當所有功能都集中在同一個前端專案中，團隊協作、部署與技術演進都會受到限制
 </div>
 
 <div class="mt-6 space-y-3">
-  <v-clicks>
 
   <div class="pain-item">
     <span class="pain-num">01</span>
@@ -43,7 +42,6 @@ layout: default
     </div>
   </div>
 
-  </v-clicks>
 </div>
 
 <style>
@@ -72,7 +70,7 @@ layout: default
 }
 .pain-desc {
   font-size: 0.78rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.5;
 }
 </style>

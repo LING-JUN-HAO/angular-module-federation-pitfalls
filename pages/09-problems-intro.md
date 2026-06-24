@@ -67,7 +67,7 @@ class: text-center transition-page
 }
 .problem-row-hint {
   font-size: 0.72rem;
-  color: #475569;
+  color: #94a3b8;
   font-family: 'Fira Code', monospace;
 }
 </style>

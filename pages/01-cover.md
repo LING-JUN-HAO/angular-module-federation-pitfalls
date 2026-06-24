@@ -8,6 +8,6 @@
   我以為 shared 了就沒事了
 </p>
 
-<p class="text-base mb-4" style="color: #64748b;">
+<p class="text-base mb-4" style="color: #cbd5e1;">
   Build 沒報錯，不代表 Runtime 沒問題
 </p>

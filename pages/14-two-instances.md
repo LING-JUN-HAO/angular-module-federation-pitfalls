@@ -88,7 +88,7 @@ layout: none
 }
 .slide-subtitle {
   font-size: 0.68rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.7;
 }
 .content-row {
@@ -192,7 +192,7 @@ layout: none
 }
 .zone-note {
   font-size: 0.55rem;
-  color: #7f1d1d;
+  color: #f87171;
   line-height: 1.5;
   border-top: 1px solid #2d0f0f;
   padding-top: 0.35rem;
@@ -231,7 +231,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7f1d1d;
+  color: #f87171;
   margin-bottom: 0.45rem;
 }
 .problem-text {

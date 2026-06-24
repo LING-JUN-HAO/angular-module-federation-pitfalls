@@ -4,7 +4,7 @@ layout: default
 
 # Host 顯性列出，build dist 卻沒有它
 
-<div class="mt-2 mb-5 text-sm" style="color: #64748b;">
+<div class="mt-2 mb-5 text-sm" style="color: #cbd5e1;">
   把套件名稱寫進 shared 設定，不等於 Webpack 真的會把它共享出去
 </div>
 
@@ -113,7 +113,7 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   padding: 0.5rem 0.9rem;
   border-bottom: 1px solid #1e293b;
   background: #0b1222;
@@ -131,7 +131,7 @@ shared: share({
 }
 .arrow-label {
   font-size: 0.52rem;
-  color: #64748b;
+  color: #cbd5e1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -176,7 +176,7 @@ shared: share({
   flex: 1;
 }
 .dist-item.present code { color: #94a3b8; }
-.dist-item.absent  code { color: #334155; }
+.dist-item.absent  code { color: #94a3b8; }
 .dist-tag {
   font-size: 0.5rem;
   font-weight: 700;
@@ -187,7 +187,7 @@ shared: share({
   flex-shrink: 0;
 }
 .present-tag { background: #052e16; color: #86efac; border: 1px solid #14532d; }
-.absent-tag  { background: #1e293b; color: #475569; border: 1px solid #334155; }
+.absent-tag  { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
 .reason-block {
   background: #0f172a;
   border: 1px solid #1e293b;
@@ -199,7 +199,7 @@ shared: share({
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.7rem;
 }
 .reason-body {

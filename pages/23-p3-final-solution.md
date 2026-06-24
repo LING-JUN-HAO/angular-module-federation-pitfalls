@@ -96,7 +96,7 @@ layout: none
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -136,7 +136,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.5rem;
 }
 .warn-label { color: #f87171; }
@@ -191,11 +191,11 @@ layout: none
 .effect-node.ok { border-color: #166534; background: #052e16; color: #4ade80; }
 .effect-sub {
   font-size: 0.5rem;
-  color: #64748b;
+  color: #cbd5e1;
 }
 .effect-arrow {
   font-size: 0.65rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.4;
 }
 
@@ -245,7 +245,7 @@ layout: none
   padding-top: 0.6rem;
   border-top: 1px solid #1e293b;
   font-size: 0.58rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .mitigation-note code {

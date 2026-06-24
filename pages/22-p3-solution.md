@@ -100,7 +100,7 @@ export const routes: Routes = [
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -137,7 +137,7 @@ export const routes: Routes = [
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.5rem;
 }
 .warn-label { color: #f87171; }

@@ -5,7 +5,6 @@ layout: default
 # 微前端解決了什麼
 
 <div class="mt-8 grid grid-cols-3 gap-5">
-  <v-clicks>
 
   <div class="benefit-card">
     <div class="benefit-label">開發彈性</div>
@@ -46,11 +45,14 @@ layout: default
     </div>
   </div>
 
-  </v-clicks>
 </div>
 
-<v-click>
 <div class="mt-6 bottom-row">
+  <div class="bottom-item">
+    <div class="bottom-num">↑</div>
+    <div class="bottom-text">團隊自主性提高</div>
+  </div>
+  <div class="bottom-divider"></div>
   <div class="bottom-item">
     <div class="bottom-num">↑</div>
     <div class="bottom-text">發布頻率提升</div>
@@ -61,16 +63,10 @@ layout: default
     <div class="bottom-text">上版風險降低</div>
   </div>
   <div class="bottom-divider"></div>
-  <div class="bottom-item">
-    <div class="bottom-num">↑</div>
-    <div class="bottom-text">團隊自主性提高</div>
-  </div>
-  <div class="bottom-divider"></div>
   <div class="bottom-principle">
     核心思路：讓技術架構真實反映團隊的分工方式
   </div>
 </div>
-</v-click>
 
 <style>
 .benefit-card {
@@ -97,7 +93,7 @@ layout: default
 }
 .benefit-example {
   font-size: 0.75rem;
-  color: #475569;
+  color: #94a3b8;
   background: #0a0f1a;
   border-left: 2px solid #1e293b;
   padding: 0.4rem 0.6rem;
@@ -106,7 +102,7 @@ layout: default
 }
 .benefit-fix {
   font-size: 0.72rem;
-  color: #475569;
+  color: #94a3b8;
 }
 .fix-tag {
   display: inline-block;
@@ -154,7 +150,7 @@ layout: default
   align-items: center;
   gap: 0.3rem;
 }
-.cd-sep { color: #7f1d1d; }
+.cd-sep { color: #f87171; }
 .cd-mf-box {
   background: #071410;
   border: 1px solid #1e4a2e;
@@ -179,7 +175,7 @@ layout: default
 }
 .cd-arrow {
   font-size: 0.9rem;
-  color: #334155;
+  color: #94a3b8;
   flex-shrink: 0;
 }
 .cd-deploy {
@@ -189,7 +185,7 @@ layout: default
 }
 .cd-vs {
   font-size: 0.7rem;
-  color: #334155;
+  color: #94a3b8;
   font-weight: 700;
   flex-shrink: 0;
   padding: 0 0.2rem;
@@ -220,7 +216,7 @@ layout: default
 }
 .bottom-text {
   font-size: 0.78rem;
-  color: #64748b;
+  color: #cbd5e1;
 }
 .bottom-divider {
   width: 1px;

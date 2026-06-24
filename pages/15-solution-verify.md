@@ -92,7 +92,7 @@ import("./bootstrap").then(() => {
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -138,14 +138,14 @@ import("./bootstrap").then(() => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
 }
 .img-label {
   font-size: 0.52rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   border-bottom: 1px solid #1e293b;
   padding-bottom: 0.35rem;
 }
@@ -171,7 +171,7 @@ import("./bootstrap").then(() => {
 }
 .timing-note {
   font-size: 0.6rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.55;
   background: #0b1628;
   border: 1px solid #1e3a5f;
@@ -185,7 +185,7 @@ import("./bootstrap").then(() => {
   gap: 0.3rem;
   margin: 0;
   font-size: 0.6rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.6;
 }
 .field-item {

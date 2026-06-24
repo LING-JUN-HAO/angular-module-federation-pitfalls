@@ -91,7 +91,7 @@ layout: none
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -124,7 +124,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.6rem;
 }
 .warn-label { color: #f87171; }
@@ -220,7 +220,7 @@ layout: none
 .compare-head {
   font-size: 0.6rem;
   font-weight: 700;
-  color: #64748b;
+  color: #cbd5e1;
   margin-bottom: 0.5rem;
 }
 .compare-divider {

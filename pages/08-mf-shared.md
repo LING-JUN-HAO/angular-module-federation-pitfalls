@@ -84,7 +84,7 @@ layout: default
 }
 .intro-line {
   font-size: 0.78rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .intro-note {
@@ -155,7 +155,7 @@ layout: default
 .runtime-title {
   font-size: 0.55rem;
   font-weight: 700;
-  color: #334155;
+  color: #94a3b8;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   flex-shrink: 0;
@@ -191,7 +191,7 @@ layout: default
 }
 .s-arrow {
   font-size: 0.85rem;
-  color: #334155;
+  color: #94a3b8;
   line-height: 1;
 }
 .s-result {
@@ -236,7 +236,7 @@ layout: default
 }
 .option-desc {
   font-size: 0.67rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.55;
 }
 </style>

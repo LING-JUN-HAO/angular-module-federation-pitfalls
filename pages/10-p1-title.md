@@ -4,9 +4,10 @@ class: text-center
 ---
 
 <div class="pit-wrap">
-  <div class="pit-badge">踩坑三</div>
-  <h1 class="pit-title">微前端架構下的<br>樣式隔離與樣式污染問題</h1>
-  <div class="pit-error">→ 樣式污染 / 覆蓋失效</div>
+  <div class="pit-badge">踩坑一</div>
+  <h1 class="pit-title">Angular secondary entry point<br>的 shared 共用</h1>
+  <div class="pit-error">RuntimeError: NG0203: toSignal() can only be used within an injection context</div>
+  <div class="pit-hint">shared 設定正確，但錯誤依然發生</div>
 </div>
 
 <style>
@@ -31,7 +32,7 @@ class: text-center
   font-size: 2rem;
   font-weight: 800;
   color: #e2e8f0;
-  line-height: 1.7;
+  line-height: 1.3;
   margin: 0;
 }
 .pit-error {
@@ -42,10 +43,10 @@ class: text-center
   border: 1px solid #7f1d1d;
   border-radius: 6px;
   padding: 0.5em 1.2em;
-  max-width: 640px;
+  max-width: 600px;
 }
 .pit-hint {
   font-size: 0.75rem;
-  color: #475569;
+  color: #94a3b8;
 }
 </style>

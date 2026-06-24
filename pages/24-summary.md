@@ -68,7 +68,7 @@ Webpack optimize 階段可能改變模組打包與執行順序，導致 shared d
 .summary-title { font-weight: 700; color: #e2e8f0; font-size: 0.9rem; }
 .summary-rule {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
   border-top: 1px solid #1e293b;
   padding-top: 0.5rem;
@@ -91,7 +91,7 @@ Webpack optimize 階段可能改變模組打包與執行順序，導致 shared d
 }
 .final-note {
   font-size: 0.85rem;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.8;
 }
 </style>

@@ -138,7 +138,7 @@ optimization: {
 }
 .slide-subtitle {
   font-size: 0.62rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {

@@ -109,7 +109,7 @@ layout: none
 }
 .slide-subtitle {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .content-row {
@@ -173,7 +173,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 0.3rem;
   margin-top: 0.15rem;
 }
@@ -230,7 +230,7 @@ layout: none
 .env-mode {
   font-family: 'Fira Code', monospace;
   font-size: 0.62rem;
-  color: #64748b;
+  color: #cbd5e1;
   width: 9.5rem;
 }
 .ok-text   { font-size: 0.65rem; color: #4ade80; font-weight: 600; }
@@ -240,7 +240,7 @@ layout: none
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #94a3b8;
   border-bottom: 1px solid #1e293b;
   padding-bottom: 0.35rem;
 }
@@ -252,7 +252,7 @@ layout: none
 }
 .error-caption {
   font-size: 0.58rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 .error-caption code {
