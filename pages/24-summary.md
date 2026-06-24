@@ -7,7 +7,7 @@ class: text-center
   <span class="part-badge">總結</span>
 </div>
 
-# Module Federation 的三個邊界
+# Module Federation 實作經驗分享
 
 <div class="mt-6 flex justify-center gap-4">
 

@@ -9,6 +9,11 @@ fonts:
   mono: "Fira Code"
 title: Angular Module Federation 踩坑實錄：我以為 shared 了就沒事了
 author: He
+ogImage: https://res.cloudinary.com/dseg0uwc9/image/upload/v1782287549/angular-module-federation-pitfalls/ogimage_bu0usz.png
+favicon: https://res.cloudinary.com/dseg0uwc9/image/upload/v1782287599/angular-module-federation-pitfalls/favicon.png
+seoMeta:
+  ogTitle: Angular Module Federation 踩坑實錄：我以為 shared 了就沒事了
+  ogDescription: 三個 Angular Module Federation 實作踩坑經驗分享：secondary entry point 沒進 shared scope、production optimization 打亂載入順序、Tailwind CSS 沒進載入鏈，分析每個問題的根因與取捨。
 layout: center
 class: text-center
 src: ./pages/01-cover.md
