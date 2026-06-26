@@ -15,7 +15,6 @@ layout: none
 
 <div class="left-col">
 
-<v-click>
 <div class="instance-diagram">
   <div class="inst-label">執行時的 module 狀態</div>
   <div class="inst-cols">
@@ -43,16 +42,13 @@ layout: none
     </div>
   </div>
 </div>
-</v-click>
 
-<v-click>
 <div class="problem-box">
   <div class="problem-title">問題點</div>
   <div class="problem-text">
     <code>toSignal()</code> 透過 B 執行 → B 沒有作用中的 injector → <span class="err">NG0203</span>
   </div>
 </div>
-</v-click>
 
 </div>
 

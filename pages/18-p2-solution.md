@@ -21,7 +21,6 @@ Class extends value undefined
 
 </div>
 
-<v-click>
 <div class="info-block">
   <div class="info-label label-fix">處理方式</div>
 
@@ -32,13 +31,10 @@ optimization: {
 ```
 
 </div>
-</v-click>
 
-<v-click>
 <div class="tl-ruling">
   取捨：穩定性提高，但 bundle 可能稍微變大
 </div>
-</v-click>
 
 </div>
 

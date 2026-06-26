@@ -24,7 +24,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item">
+  <div class="tl-item">
     <div class="tl-step">
       <div class="tl-num">2</div>
       <div class="tl-line"></div>
@@ -45,7 +45,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item">
+  <div class="tl-item">
     <div class="tl-step">
       <div class="tl-num">3</div>
       <div class="tl-line"></div>
@@ -56,7 +56,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item last">
+  <div class="tl-item last">
     <div class="tl-step">
       <div class="tl-num">4</div>
     </div>

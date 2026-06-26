@@ -30,13 +30,11 @@ shared: share({
 
 </div>
 
-<v-click>
 <div class="arrow-row">
   <div class="arrow-line-h"></div>
   <div class="arrow-label">build</div>
   <div class="arrow-line-h"></div>
 </div>
-
 <div class="dist-block">
   <div class="dist-label">Host dist — shared scope 實際內容</div>
   <div class="dist-list">
@@ -52,7 +50,6 @@ shared: share({
     </div>
   </div>
 </div>
-</v-click>
 
 </div>
 
@@ -78,9 +75,7 @@ shared: share({
     </div>
   </div>
 </div>
-</v-click>
 
-<v-click>
 <div class="rule-box mt-4">
   <div class="rule-title">Module Federation 的共享前提</div>
   <div class="rule-text">

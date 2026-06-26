@@ -11,16 +11,10 @@ layout: default
   </div>
   <div class="other-methods">
     <div class="method-card">
-      <div class="method-name">Runtime Dynamic Loading</div>
-      <div class="method-pro"><span class="label-pro">優</span>載入邏輯完全自訂</div>
-      <div class="method-con"><span class="label-con">缺</span>缺少標準化框架支援</div>
-      <div class="method-con"><span class="label-con">缺</span>版本與載入錯誤需自行處理</div>
-    </div>
-    <div class="method-card">
       <div class="method-name">iframe</div>
       <div class="method-pro"><span class="label-pro">優</span>完全隔離、技術棧不限</div>
       <div class="method-con"><span class="label-con">缺</span>路由與狀態同步困難</div>
-      <div class="method-con"><span class="label-con">缺</span>父子應用需透過 postMessage 溝通</div>
+      <div class="method-con"><span class="label-con">缺</span>父子應用透過 postMessage 溝通</div>
     </div>
     <div class="method-card">
       <div class="method-name">Web Components</div>
@@ -32,6 +26,12 @@ layout: default
       <div class="method-name">Single SPA</div>
       <div class="method-pro"><span class="label-pro">優</span>完整微前端框架</div>
       <div class="method-con"><span class="label-con">缺</span>子應用需配合主應用掛載流程</div>
+    </div>
+    <div class="method-card">
+      <div class="method-name">Runtime Dynamic Loading</div>
+      <div class="method-pro"><span class="label-pro">優</span>載入邏輯完全自訂</div>
+      <div class="method-con"><span class="label-con">缺</span>缺少標準化框架支援</div>
+      <div class="method-con"><span class="label-con">缺</span>版本與載入錯誤需自行處理</div>
     </div>
   </div>
 
@@ -92,7 +92,6 @@ layout: default
             </div>
           </div>
         </div>
-        <div class="dep-result dep-good">共用相容依賴，避免重複執行</div>
       </div>
     </div>
   </div>

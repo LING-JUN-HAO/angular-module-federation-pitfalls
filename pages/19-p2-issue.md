@@ -24,7 +24,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item">
+  <div class="tl-item">
     <div class="tl-step">
       <div class="tl-num">2</div>
       <div class="tl-line"></div>
@@ -35,7 +35,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item">
+  <div class="tl-item">
     <div class="tl-step">
       <div class="tl-num">3</div>
       <div class="tl-line"></div>
@@ -46,7 +46,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="tl-item last">
+  <div class="tl-item last">
     <div class="tl-step">
       <div class="tl-num">4</div>
     </div>
@@ -58,7 +58,7 @@ layout: none
 
 </div>
 
-<div v-click class="right-col">
+<div class="right-col">
   <img src="/issue-1053.png" class="issue-img" />
   <a class="issue-link" href="https://github.com/angular-architects/module-federation-plugin/issues/1053" target="_blank">@angular-architects/module-federation Issue #1053</a>
   <div class="ai-note">AI 或許足夠強大，但也不要忘記我們還有社群的經驗可以借鏡。</div>

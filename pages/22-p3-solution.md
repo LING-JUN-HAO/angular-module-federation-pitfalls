@@ -43,7 +43,10 @@ layout: none
       </div>
       <div class="compare-item">
         <div class="mini-label warn-label">實際</div>
-        <div class="compare-text">Angular 會加上 <code>_ngcontent-*</code> scope<br>Tailwind utilities 被限制在該 component 內</div>
+        <ul class="compare-list">
+          <li>Angular 會加上 <code>_ngcontent-*</code> scope</li>
+          <li>Tailwind utilities 被限制在該 component 內</li>
+        </ul>
       </div>
     </div>
     <img src="/devtools-ngcontent.png" class="devtools-img devtools-img-top" />
@@ -53,13 +56,6 @@ layout: none
 </div>
 
 </div>
-
-<v-click>
-<div class="warning-block">
-  <div class="mini-label warn-label">風險</div>
-  <div class="result-text"><span class="risk-hl">Tailwind 不再是全域 utility layer</span>，而是被限制在該 component 的 scoped CSS。<br>外層 component 吃得到；但<span class="risk-hl">子元件、動態內容、投影內容</span>可能吃不到。</div>
-</div>
-</v-click>
 
 </div>
 
@@ -178,6 +174,36 @@ layout: none
   line-height: 1.55;
 }
 .compare-text code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.56rem;
+  color: #a5b4fc;
+}
+.compare-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.compare-list li {
+  position: relative;
+  padding-left: 0.85rem;
+  font-size: 0.62rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+.compare-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #64748b;
+}
+.compare-list code {
   font-family: 'Fira Code', monospace;
   font-size: 0.56rem;
   color: #a5b4fc;

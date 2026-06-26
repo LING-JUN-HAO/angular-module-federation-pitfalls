@@ -59,30 +59,22 @@ shared: share({
   <div class="chain-node cause">
     Host 有列出 <code>@angular/core/rxjs-interop</code>，但 Host 未實際 import，未進入 Host bundle
   </div>
-  </v-click>
 
-  <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node effect">
     shared scope 裡不存在此套件
   </div>
-  </v-click>
 
-  <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node neutral">
     Remote 載入時去 shared scope 找，但找不到
   </div>
-  </v-click>
 
-  <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node fallback">
     Module Federation fallback 觸發
   </div>
-  </v-click>
 
-  <v-click>
   <div class="chain-arrow">↓</div>
   <div class="chain-node result">
     使用 Remote bundle 內的版本

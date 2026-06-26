@@ -11,7 +11,6 @@ class: text-center
 
 <div class="mt-6 flex justify-center gap-4">
 
-<v-click>
 <div class="summary-card">
   <div class="summary-problem accent-red">踩坑一</div>
   <div class="summary-title">Secondary entry point 沒進 shared scope</div>
@@ -20,9 +19,7 @@ class: text-center
 在 <code>singleton</code> + <code>shared</code> 前提下，有狀態相依的子模組必須與主模組共用同一個來源，不能各自產生實例
   </div>
 </div>
-</v-click>
 
-<v-click>
 <div class="summary-card">
   <div class="summary-problem accent-red">踩坑二</div>
   <div class="summary-title">Production optimization 打亂載入順序</div>
@@ -31,9 +28,7 @@ class: text-center
 Webpack optimize 階段可能改變模組打包與執行順序，導致 shared dependency 的初始化時機與開發環境不同
   </div>
 </div>
-</v-click>
 
-<v-click>
 <div class="summary-card">
   <div class="summary-problem accent-red">踩坑三</div>
   <div class="summary-title">Tailwind CSS 沒進 Module Federation 的載入鏈</div>
@@ -42,7 +37,6 @@ Webpack optimize 階段可能改變模組打包與執行順序，導致 shared d
     用 <code>ViewEncapsulation.None</code> 可讓 Tailwind 跟著 component 生效，但要自行控管跨 Remote 的 Tailwind 設定一致性
   </div>
 </div>
-</v-click>
 
 </div>
 

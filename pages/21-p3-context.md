@@ -39,7 +39,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="conclusion-block">
+  <div class="conclusion-block">
     <span class="conclusion-text">styles.css 已經成功產生，但目前沒有被 remoteEntry.js 引用。因此 Host 動態載入 Remote JS 時，不會自動載入這份 CSS。</span>
   </div>
 
@@ -47,7 +47,8 @@ layout: none
 
 <div class="right-col">
 
-  <div v-click class="section-card">
+  <v-click>
+  <div class="section-card">
     <div class="mini-label">目標</div>
     <div class="goal-core">Remote 載入後，樣式也要跟著生效</div>
     <div class="goal-reasons">
@@ -56,7 +57,7 @@ layout: none
     </div>
   </div>
 
-  <div v-click class="section-card mt-3">
+  <div class="section-card mt-3">
     <div class="mini-label">解法方向：讓 Remote 入口模組主動帶上 CSS</div>
     <div class="flow-chain stack">
       <div class="flow-step">Host 動態載入 Remote JS</div>
@@ -68,6 +69,8 @@ layout: none
       <div class="flow-step ok">Remote 樣式在 Host 中生效</div>
     </div>
   </div>
+
+  </v-click>
 
 </div>
 

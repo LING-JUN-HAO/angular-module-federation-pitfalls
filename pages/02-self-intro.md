@@ -8,7 +8,7 @@ layout: center
 
 <div class="intro-text">
   <div class="intro-name">Antonio（安東尼）</div>
-  <div class="intro-role">前端工程師 · 新創醫療公司</div>
+  <div class="intro-role">軟體工程師 · 新創醫療公司</div>
 
   <div class="intro-subhead">相關經歷</div>
   <div class="intro-highlights">
