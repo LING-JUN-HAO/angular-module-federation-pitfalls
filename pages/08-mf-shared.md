@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # Shared 如何讓所有子應用共用依賴？
 
 <div class="body-wrap">
@@ -9,8 +11,8 @@ layout: default
     <div class="intro-line">所有載入到同一頁面的應用，都會在 Runtime 自動協商套件版本；版本相容則共用同一份實例，不相容時依設定拋出錯誤或各自載入。</div>
   </div>
   <div class="configs-section">
-    <div class="config-block remote-block">
-      <div class="config-title remote-c">Remote — webpack.config.js</div>
+    <div class="config-block host-block">
+      <div class="config-title host-c">Host — webpack.config.js</div>
       <div class="code-body">
         <div class="code-line"><span class="ck">shared</span>: <span class="cf">share</span>({</div>
         <div class="code-line"><span class="ci"></span><span class="cs">'@angular/core'</span>: {</div>
@@ -38,8 +40,8 @@ layout: default
         <div class="s-result bad">✗ throw error</div>
       </div>
     </div>
-    <div class="config-block host-block">
-      <div class="config-title host-c">Host — webpack.config.js</div>
+    <div class="config-block remote-block">
+      <div class="config-title remote-c">Remote — webpack.config.js</div>
       <div class="code-body">
         <div class="code-line"><span class="ck">shared</span>: <span class="cf">share</span>({</div>
         <div class="code-line"><span class="ci"></span><span class="cs">'@angular/core'</span>: {</div>
@@ -134,7 +136,7 @@ layout: default
 }
 .code-line {
   font-family: 'Fira Code', monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   line-height: 1.65;
 }
 .ck  { color: #7dd3fc; }

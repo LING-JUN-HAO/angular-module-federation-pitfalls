@@ -13,8 +13,8 @@ layout: center
   <div class="intro-subhead">相關經歷</div>
   <div class="intro-highlights">
     <div class="intro-highlight">2025 iThome 鐵人賽佳作</div>
-    <div class="intro-highlight">WebConf 網站開發人員</div>
-    <div class="intro-highlight">六角學院課程講師</div>
+    <div class="intro-highlight">2025 WebConf 網站開發人員</div>
+    <div class="intro-highlight">六角學院直播課講師</div>
   </div>
 </div>
 

@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # 前情提要：Secondary Entry Points
 
 <div class="mt-2 mb-5 text-sm" style="color: #cbd5e1;">
@@ -41,7 +43,7 @@ layout: default
     <div class="body-line">提供 <strong>RxJS ↔ Angular Signals</strong> 的橋接函數：</div>
     <div class="body-line"><code>toSignal(observable)</code> — Observable 轉 Signal</div>
     <div class="body-line"><code>toObservable(signal)</code> — Signal 轉 Observable</div>
-    <span class="dep-note"><code>toSignal()</code> 會建立 Observable 訂閱，因此預設需要在 <strong>Injection Context</strong> 中執行，讓 Angular 能透過 <code>DestroyRef</code> 在對應的元件、指令或服務銷毀時自動清理。</span>
+    <span class="dep-note"><code>toSignal()</code> 會建立 Observable 訂閱，因此需要在 <strong>Injection Context</strong> 中執行，讓 Angular 能透過 <code>DestroyRef</code> 在對應的元件、指令或服務銷毀時自動清理。</span>
     <span class="inject-note"><strong>Injection Context</strong> 是 Angular 用來判斷「目前要從哪個 Injector 解析依賴」的執行上下文；只有在這個上下文存在時，<code>inject()</code> 才能正確取得依賴，例如 constructor、field initializer 或 <code>runInInjectionContext()</code> 的同步範圍。</span>
   </div>
 </div>
@@ -158,13 +160,13 @@ layout: default
   padding: 0.8rem 1.1rem;
 }
 .focus-title {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #7dd3fc;
   margin-bottom: 0.4rem;
 }
 .focus-body {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: #94a3b8;
   line-height: 1.8;
 }
@@ -176,27 +178,27 @@ layout: default
 }
 .focus-body code {
   font-family: 'Fira Code', monospace;
-  color: #a5b4fc;
-  font-size: 0.7rem;
+  color: #cbd5e1;
+  font-size: 0.78rem;
 }
 .dep-note {
   display: block;
   margin-top: 0.3rem;
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   color: #94a3b8;
 }
 .dep-note strong {
-  color: #7dd3fc;
+  color: #cbd5e1;
 }
 .dep-note code {
   font-family: 'Fira Code', monospace;
-  color: #a5b4fc;
-  font-size: 0.64rem;
+  color: #cbd5e1;
+  font-size: 0.7rem;
 }
 .inject-note {
   display: block;
   margin-top: 0.5rem;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   color: #cbd5e1;
   line-height: 2;
   border-top: 1px solid #1e293b;
@@ -205,6 +207,6 @@ layout: default
 .inject-note code {
   font-family: 'Fira Code', monospace;
   color: #94a3b8;
-  font-size: 0.6rem;
+  font-size: 0.66rem;
 }
 </style>

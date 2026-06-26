@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -46,7 +48,7 @@ layout: none
 <div class="problem-box">
   <div class="problem-title">問題點</div>
   <div class="problem-text">
-    <code>toSignal()</code> 透過 B 執行 → B 沒有作用中的 injector → <span class="err">NG0203</span>
+    <code>toSignal()</code> 透過 Remote 的 @angular/core 執行，但這個 @angular/core 沒有作用中的 injector，因此拋出 <span class="err-badge">NG0203</span>。
   </div>
 </div>
 
@@ -98,8 +100,9 @@ layout: none
 .left-col {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
+  gap: 0.7rem;
+  align-items: stretch;
+  justify-content: flex-start;
   overflow: hidden;
 }
 .right-col {
@@ -140,12 +143,12 @@ layout: none
   overflow: hidden;
 }
 .inst-label {
-  font-size: 0.55rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #94a3b8;
-  padding: 0.5rem 0.9rem;
+  padding: 0.6rem 0.9rem;
   background: #0b1222;
   border-bottom: 1px solid #1e293b;
 }
@@ -155,15 +158,15 @@ layout: none
   gap: 0.6rem;
 }
 .inst-zone {
-  padding: 0.75rem 0.85rem;
+  padding: 0.8rem 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 .shared-zone { border-right: 1px solid #1e293b; }
 .bundle-zone {}
 .zone-title {
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -174,14 +177,14 @@ layout: none
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-family: 'Fira Code', monospace;
   color: #a5b4fc;
 }
 .zone-pkg.danger { color: #f87171; }
-.pkg-long { font-size: 0.48rem; }
+.pkg-long { font-size: 0.58rem; }
 .zone-arrow {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   color: #94a3b8;
   padding-left: 1rem;
   line-height: 1.2;
@@ -204,7 +207,7 @@ layout: none
 .yellow-dot { background: #f59e0b; }
 .red-dot    { background: #ef4444; }
 .inst-tag {
-  font-size: 0.48rem;
+  font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   border-radius: 3px;
@@ -223,22 +226,32 @@ layout: none
   padding: 0.75rem 0.9rem;
 }
 .problem-title {
-  font-size: 0.55rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #f87171;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 .problem-text {
-  font-size: 0.67rem;
-  color: #94a3b8;
-  line-height: 1.8;
+  font-size: 0.74rem;
+  color: #cbd5e1;
+  line-height: 1.85;
 }
 .problem-text code {
   font-family: 'Fira Code', monospace;
   color: #a5b4fc;
-  font-size: 0.63rem;
+  font-size: 0.7rem;
 }
-.err { color: #f87171; font-family: 'Fira Code', monospace; font-size: 0.67rem; }
+.err-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fca5a5;
+  background: #450a0a;
+  border: 1px solid #991b1b;
+  border-radius: 4px;
+  padding: 0.12em 0.5em;
+  white-space: nowrap;
+}
 </style>

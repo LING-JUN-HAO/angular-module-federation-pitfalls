@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -95,7 +97,7 @@ layout: none
   margin: 0 0 0.4rem 0;
 }
 .slide-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -310,5 +312,11 @@ layout: none
   font-weight: 700;
 }
 
+/* 左欄放大（限定 left-col，避免影響右欄共用的 class） */
+.left-col .mini-label { font-size: 0.7rem; }
+.left-col .layer-label { font-size: 0.68rem; }
+.left-col .flow-step { font-size: 0.8rem; }
+.left-col .flow-arrow { font-size: 0.82rem; }
+.conclusion-text { font-size: 0.84rem; }
 
 </style>

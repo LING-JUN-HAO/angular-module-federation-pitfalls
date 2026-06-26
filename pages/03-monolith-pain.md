@@ -2,13 +2,15 @@
 layout: default
 ---
 
+<PageNum />
+
 # 單體架構的痛點
 
-<div class="mt-2 text-sm" style="color: #cbd5e1;">
+<div class="mt-3 text-base" style="color: #cbd5e1;">
   當所有功能都集中在同一個前端專案中，團隊協作、部署與技術演進都會受到限制
 </div>
 
-<div class="mt-6 space-y-3">
+<div class="pain-list">
 
   <div class="pain-item">
     <span class="pain-num">01</span>
@@ -45,32 +47,38 @@ layout: default
 </div>
 
 <style>
+.pain-list {
+  height: calc(100% - 8.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
 .pain-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.3rem;
   background: #0f172a;
   border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  padding: 0.35rem 1.6rem;
 }
 .pain-num {
-  font-size: 0.7rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #f87171;
   letter-spacing: 0.05em;
-  min-width: 24px;
-  padding-top: 0.1rem;
+  min-width: 32px;
 }
 .pain-title {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #e2e8f0;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.35rem;
 }
 .pain-desc {
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 </style>

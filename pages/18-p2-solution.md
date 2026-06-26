@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -63,7 +65,7 @@ optimization: {
   color: #86efac;
 }
 .slide-subtitle {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -83,7 +85,7 @@ optimization: {
   flex-shrink: 0;
 }
 .info-label {
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -92,19 +94,19 @@ optimization: {
 .label-bad { color: #f87171; }
 .label-fix { color: #4ade80; }
 .info-text {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: #cbd5e1;
   line-height: 1.6;
   margin-bottom: 0.5rem;
 }
 .info-block pre {
-  font-size: 0.7rem !important;
+  font-size: 0.8rem !important;
   line-height: 1.5 !important;
   margin: 0 !important;
   border-radius: 6px !important;
 }
 .tl-ruling {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #e2e8f0;
   line-height: 1.65;

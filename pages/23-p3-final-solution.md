@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -18,7 +20,7 @@ layout: none
 
 <div class="mechanism-text">
 
-在最外層 component 加上 <code>ViewEncapsulation.None</code>，讓原本會被 Angular scope 的 component CSS，改以 global CSS 形式注入 runtime。這樣 Tailwind utilities 不再受 <code>\_ngcontent-\*</code> 限制，巢狀元件也能使用同一份 Tailwind 樣式。
+最外層 component 加上 <code>ViewEncapsulation.None</code> 後，component CSS 改以 global CSS 注入 runtime，不受 <code>\_ngcontent-\*</code> 限制，巢狀元件也能共用同一份 Tailwind 樣式
 
 </div>
 
@@ -95,7 +97,7 @@ layout: none
   color: #86efac;
 }
 .slide-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -149,7 +151,7 @@ layout: none
   margin-bottom: 0.5rem;
 }
 .section-card pre {
-  font-size: 0.5rem !important;
+  font-size: 0.58rem !important;
   line-height: 1.4 !important;
   margin: 0 !important;
   border-radius: 6px !important;
@@ -169,44 +171,45 @@ layout: none
   gap: 0;
   margin-bottom: 0.6rem;
 }
+.right-col .mini-label { font-size: 0.72rem; }
 .effect-node {
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  font-size: 0.62rem;
+  font-size: 0.82rem;
   color: #cbd5e1;
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 6px;
-  padding: 0.5rem 0.7rem;
+  padding: 0.65rem 0.8rem;
   line-height: 1.5;
 }
 .effect-node code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.58rem;
+  font-size: 0.76rem;
   color: #a5b4fc;
 }
 .effect-node.global { border-color: #b45309; background: #1c1206; }
 .effect-node.global code { color: #fde68a; }
 .effect-node.ok { border-color: #166534; background: #052e16; color: #4ade80; }
 .effect-sub {
-  font-size: 0.5rem;
+  font-size: 0.64rem;
   color: #cbd5e1;
 }
 .effect-arrow {
-  font-size: 0.65rem;
+  font-size: 0.82rem;
   color: #94a3b8;
   line-height: 1.4;
 }
 
 .result-text {
-  font-size: 0.62rem;
+  font-size: 0.8rem;
   color: #fca5a5;
   line-height: 1.6;
 }
 .result-text code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.56rem;
+  font-size: 0.74rem;
   color: #f87171;
 }
 .result-text.ok-text {

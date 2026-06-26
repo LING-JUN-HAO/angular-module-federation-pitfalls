@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # Module Federation 如何載入 Remote？
 
 <div class="body-wrap">
@@ -9,12 +11,11 @@ layout: default
     <div class="role-card host-card">
       <div class="role-badge host-badge">主應用（Host）</div>
       <div class="role-title">應用入口與整合層</div>
-      <div class="role-desc">根據路由或需求，在 Runtime 動態載入 Remote 公開的模組</div>
+      <div class="role-desc">根據路由，在 Runtime 動態載入 Remote 公開的模組</div>
     </div>
     <div class="relation-arrow">
-      <div class="arrow-label top-label">① 發現 Remote</div>
+      <div class="arrow-label top-label">指定載入 Remote 模組</div>
       <div class="arrow-body">→</div>
-      <div class="arrow-label bottom-label">② 載入指定模組</div>
     </div>
     <div class="role-card remote-card">
       <div class="role-badge remote-badge">子應用 (Remote)</div>
@@ -113,18 +114,18 @@ layout: default
   flex-shrink: 0;
 }
 .top-label, .bottom-label {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: #94a3b8;
   font-weight: 500;
   white-space: nowrap;
 }
 .arrow-body {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   color: #94a3b8;
   line-height: 1;
 }
 .section-label {
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   font-weight: 700;
   color: #94a3b8;
   letter-spacing: 0.1em;
@@ -149,7 +150,7 @@ layout: default
   gap: 0;
 }
 .params-col-title {
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   font-weight: 700;
   font-family: 'Fira Code', monospace;
   letter-spacing: 0.04em;
@@ -173,16 +174,16 @@ layout: default
 .param-key {
   font-family: 'Fira Code', monospace;
   font-weight: 700;
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   color: #e2e8f0;
   white-space: nowrap;
   min-width: 7rem;
   flex-shrink: 0;
 }
 .param-desc {
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   color: #cbd5e1;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 .params-divider {
   width: 1px;

@@ -2,11 +2,13 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
   <h1 class="slide-title">Webpack 降版修補漏洞後，Production Build 發生 Runtime Error</h1>
-  <div class="slide-subtitle">Remote Application Webpack 套件從 5.105.0 降至 5.104.1 後，Remote Application 的 Development mode 啟動正常，但 Production mode 在 runtime 出現錯誤</div>
+  <div class="slide-subtitle">Remote 的 webpack 從 5.105.0 降至 5.104.1 後，Development mode 啟動正常，但 Production mode 在 runtime 出錯</div>
 </div>
 
 <div class="content-row">
@@ -108,7 +110,7 @@ layout: none
   margin: 0 0 0.4rem 0;
 }
 .slide-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -139,16 +141,16 @@ layout: none
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  width: 1.5rem;
+  width: 1.8rem;
 }
 .tl-num {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
   background: #1e293b;
   border: 1px solid #334155;
   color: #94a3b8;
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -162,14 +164,14 @@ layout: none
   margin: 0.25rem 0;
 }
 .tl-content {
-  padding-bottom: 0.9rem;
+  padding-bottom: 1.2rem;
   flex: 1;
 }
 .tl-item.last .tl-content {
   padding-bottom: 0;
 }
 .tl-label {
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -178,12 +180,12 @@ layout: none
   margin-top: 0.15rem;
 }
 .tl-body {
-  font-size: 0.7rem;
+  font-size: 0.88rem;
   color: #94a3b8;
   line-height: 1.7;
 }
 .tl-ruling {
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   color: #94a3b8;
   line-height: 1.7;
   padding: 0.4rem 0.7rem;
@@ -199,7 +201,7 @@ layout: none
 }
 .tl-tag {
   font-family: 'Fira Code', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: #94a3b8;
   background: #1e293b;
   border: 1px solid #334155;
@@ -208,7 +210,7 @@ layout: none
 }
 .tl-body code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.66rem;
+  font-size: 0.82rem;
   color: #a5b4fc;
 }
 .tl-env-row {
@@ -221,22 +223,22 @@ layout: none
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.35rem 0.75rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 5px;
-  width: 16rem;
+  width: 19rem;
 }
 .env-item.ok   { background: #030f07; border: 1px solid #14532d; }
 .env-item.fail { background: #150808; border: 1px solid #7f1d1d; }
 .env-mode {
   font-family: 'Fira Code', monospace;
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   color: #cbd5e1;
-  width: 9.5rem;
+  width: 11rem;
 }
-.ok-text   { font-size: 0.65rem; color: #4ade80; font-weight: 600; }
-.fail-text { font-size: 0.65rem; color: #f87171; font-weight: 600; }
+.ok-text   { font-size: 0.8rem; color: #4ade80; font-weight: 600; }
+.fail-text { font-size: 0.8rem; color: #f87171; font-weight: 600; }
 .img-label {
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -251,13 +253,13 @@ layout: none
   display: block;
 }
 .error-caption {
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
 .error-caption code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: #f87171;
 }
 </style>

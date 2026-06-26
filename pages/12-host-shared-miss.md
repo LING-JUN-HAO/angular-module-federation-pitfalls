@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # Host 顯性列出，build dist 卻沒有它
 
 <div class="mt-2 mb-5 text-sm" style="color: #cbd5e1;">
@@ -170,7 +172,13 @@ shared: share({
   font-family: 'Fira Code', monospace;
   flex: 1;
 }
-.dist-item.present code { color: #94a3b8; }
+.dist-item.present code {
+  color: #86efac;
+  background: #0c2a1a;
+  border: 1px solid #14532d;
+  border-radius: 4px;
+  padding: 0.15em 0.55em;
+}
 .dist-item.absent  code { color: #94a3b8; }
 .dist-tag {
   font-size: 0.5rem;

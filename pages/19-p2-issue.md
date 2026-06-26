@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -85,7 +87,7 @@ layout: none
   margin: 0 0 0.4rem 0;
 }
 .slide-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -115,16 +117,16 @@ layout: none
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  width: 1.5rem;
+  width: 1.8rem;
 }
 .tl-num {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
   background: #1e293b;
   border: 1px solid #334155;
   color: #94a3b8;
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -138,27 +140,27 @@ layout: none
   margin: 0.25rem 0;
 }
 .tl-content {
-  padding-bottom: 1rem;
+  padding-bottom: 1.3rem;
   flex: 1;
 }
 .tl-item.last .tl-content { padding-bottom: 0; }
 .tl-label {
-  font-size: 0.52rem;
-  font-weight: 700;
+  font-size: 0.64rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin-bottom: 0.3rem;
   margin-top: 0.15rem;
 }
 .tl-body {
-  font-size: 0.7rem;
+  font-size: 0.88rem;
   color: #94a3b8;
   line-height: 1.7;
 }
 .tl-body code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.66rem;
+  font-size: 0.82rem;
   color: #a5b4fc;
 }
 .issue-img {
@@ -170,15 +172,15 @@ layout: none
 }
 .issue-link {
   font-family: 'Fira Code', monospace;
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   color: #7dd3fc;
   text-decoration: underline;
 }
 .ai-note {
-  font-size: 0.66rem;
+  font-size: 0.82rem;
   color: #cbd5e1;
   line-height: 1.75;
-  padding: 0.6rem 0.85rem;
+  padding: 0.7rem 0.95rem;
   background: #0f172a;
   border-left: 3px solid #7dd3fc;
   border-radius: 0 6px 6px 0;

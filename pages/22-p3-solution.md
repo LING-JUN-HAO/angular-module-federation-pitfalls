@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -77,7 +79,7 @@ layout: none
   margin: 0 0 0.4rem 0;
 }
 .slide-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #cbd5e1;
   line-height: 1.6;
 }
@@ -111,7 +113,7 @@ layout: none
   padding: 0.85rem 1.05rem;
 }
 .mini-label {
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -127,12 +129,12 @@ layout: none
   margin-bottom: 0.6rem;
 }
 .flow-step {
-  font-size: 0.6rem;
+  font-size: 0.78rem;
   color: #cbd5e1;
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 6px;
-  padding: 0.4rem 0.6rem;
+  padding: 0.55rem 0.7rem;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -143,16 +145,16 @@ layout: none
   background: #0c1a30;
 }
 .flow-arrow {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #7dd3fc;
   text-align: center;
-  padding: 0.15rem 0;
+  padding: 0.2rem 0;
 }
 
 .section-card pre {
-  font-size: 0.42rem !important;
-  line-height: 1.3 !important;
+  font-size: 0.7rem !important;
+  line-height: 1.4 !important;
   margin: 0 !important;
   border-radius: 6px !important;
   max-width: 100% !important;
@@ -169,13 +171,13 @@ layout: none
   min-width: 0;
 }
 .compare-text {
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   color: #cbd5e1;
   line-height: 1.55;
 }
 .compare-text code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
   color: #a5b4fc;
 }
 .compare-list {
@@ -189,7 +191,7 @@ layout: none
 .compare-list li {
   position: relative;
   padding-left: 0.85rem;
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   color: #cbd5e1;
   line-height: 1.55;
 }
@@ -205,22 +207,22 @@ layout: none
 }
 .compare-list code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
   color: #a5b4fc;
 }
 .devtools-img-top {
   margin-top: 0.2rem;
 }
 .consequence-text {
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #f87171;
   line-height: 1.5;
-  margin-top: 0.55rem;
+  margin-top: 0.6rem;
 }
 .consequence-text code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
   color: #fca5a5;
 }
 .devtools-img {

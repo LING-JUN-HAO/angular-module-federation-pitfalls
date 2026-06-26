@@ -2,10 +2,12 @@
 layout: default
 ---
 
+<PageNum />
+
 # 微前端是什麼？
 
 <div class="mt-4 text-lg leading-relaxed" style="color: #cbd5e1; max-width: 720px;">
-  將單體前端應用拆分為多個可<span class="accent">獨立開發、部署與運行</span>的子應用，
+  將單體前端應用拆分為多個可<span class="accent">獨立開發、部署與運行</span>的子應用(Remote Application)，
   對使用者而言是一個完整的網站，對開發者而言是各自解耦、自主掌控的架構。
 </div>
 
@@ -50,7 +52,7 @@ layout: default
     <div class="compare-label label-good">微前端(after)</div>
     <div class="container-box">
       <div class="container-label">
-        主應用（容器）
+        主應用（Host Application）
         <span class="container-sub">負責組合與導覽</span>
       </div>
       <div class="mf-box">

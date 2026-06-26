@@ -2,6 +2,8 @@
 layout: none
 ---
 
+<PageNum />
+
 <div class="slide-wrap">
 
 <div class="slide-header">
@@ -122,7 +124,7 @@ import("./bootstrap").then(() => {
   overflow: hidden;
 }
 .code-block :deep(pre) {
-  font-size: 0.54rem !important;
+  font-size: 0.62rem !important;
   line-height: 1.4 !important;
   margin: 0 !important;
 }
@@ -141,7 +143,7 @@ import("./bootstrap").then(() => {
   color: #94a3b8;
 }
 .img-label {
-  font-size: 0.52rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -150,13 +152,13 @@ import("./bootstrap").then(() => {
   padding-bottom: 0.35rem;
 }
 .img-note {
-  font-size: 0.62rem;
+  font-size: 0.74rem;
   color: #4ade80;
   line-height: 1.55;
 }
 .img-note code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.57rem;
+  font-size: 0.68rem;
   color: #86efac;
   background: #052e16;
   border: 1px solid #14532d;
@@ -183,9 +185,9 @@ import("./bootstrap").then(() => {
 .field-legend {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.35rem;
   margin: 0;
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   color: #94a3b8;
   line-height: 1.6;
 }
@@ -196,7 +198,7 @@ import("./bootstrap").then(() => {
 }
 .field-legend code {
   font-family: 'Fira Code', monospace;
-  font-size: 0.57rem;
+  font-size: 0.68rem;
   color: #7dd3fc;
   background: #0c1a30;
   padding: 0.05em 0.4em;

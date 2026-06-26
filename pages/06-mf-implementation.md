@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # 微前端怎麼實現？
 
 <div class="body-wrap">
@@ -19,19 +21,19 @@ layout: default
         <div class="dep-col-label label-bad">Share Nothing</div>
         <div class="dep-apps">
           <div class="dep-app">
-            <div class="dep-app-name">主應用</div>
+            <div class="dep-app-name">主應用(Host)</div>
             <div class="dep-pkg pkg-red">Angular core</div>
             <div class="dep-pkg pkg-red">RxJS</div>
             <div class="dep-pkg pkg-red">PrimeNG</div>
           </div>
           <div class="dep-app">
-            <div class="dep-app-name">子應用 A</div>
+            <div class="dep-app-name">子應用 A(Remote)</div>
             <div class="dep-pkg pkg-red">Angular core</div>
             <div class="dep-pkg pkg-red">RxJS</div>
             <div class="dep-pkg pkg-red">PrimeNG</div>
           </div>
           <div class="dep-app">
-            <div class="dep-app-name">子應用 B</div>
+            <div class="dep-app-name">子應用 B(Remote)</div>
             <div class="dep-pkg pkg-red">Angular core</div>
             <div class="dep-pkg pkg-red">RxJS</div>
             <div class="dep-pkg pkg-red">PrimeNG</div>
@@ -41,10 +43,10 @@ layout: default
       </div>
       <div class="wmf-divider"></div>
       <div class="dep-col">
-        <div class="dep-col-label label-good">Module Federation</div>
+        <div class="dep-col-label label-good">Shared Dependencies</div>
         <div class="dep-mf">
           <div class="dep-app mf-host">
-            <div class="dep-app-name">主應用</div>
+            <div class="dep-app-name">主應用(Host)</div>
             <div class="dep-pkg pkg-green">Angular core</div>
             <div class="dep-pkg pkg-green">RxJS</div>
             <div class="dep-pkg pkg-green">PrimeNG</div>
@@ -56,10 +58,10 @@ layout: default
           </div>
           <div class="mf-remotes">
             <div class="dep-app mf-remote">
-              <div class="dep-app-name">子應用 A</div>
+              <div class="dep-app-name">子應用 A(Remote)</div>
             </div>
             <div class="dep-app mf-remote">
-              <div class="dep-app-name">子應用 B</div>
+              <div class="dep-app-name">子應用 B(Remote)</div>
             </div>
           </div>
         </div>
@@ -77,13 +79,13 @@ layout: default
   margin-top: 0.5rem;
 }
 .intro-line {
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.6;
   flex-shrink: 0;
 }
 .intro-line-gap {
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 .wmf-bridge {
   font-size: 0.75rem;
@@ -113,11 +115,11 @@ layout: default
 }
 .wmf-name {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #e2e8f0;
 }
 .wmf-tag {
-  font-size: 0.58rem;
+  font-size: 0.68rem;
   font-weight: 700;
   background: #1e3a5f;
   color: #7dd3fc;
@@ -144,7 +146,7 @@ layout: default
   min-height: 0;
 }
 .dep-col-label {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -168,7 +170,7 @@ layout: default
   background: #0f172a;
 }
 .dep-app-name {
-  font-size: 0.63rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #94a3b8;
   padding-bottom: 0.2rem;
@@ -176,7 +178,7 @@ layout: default
   margin-bottom: 0.1rem;
 }
 .dep-pkg {
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   border-radius: 3px;
   padding: 0.1em 0.4em;
   text-align: center;
@@ -184,7 +186,7 @@ layout: default
 .pkg-red   { background: #2d0f0f; color: #f87171; border: 1px solid #7f1d1d; }
 .pkg-green { background: #052e16; color: #86efac; border: 1px solid #14532d; }
 .dep-result {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   padding: 0.3em 0;
@@ -214,7 +216,7 @@ layout: default
   background: #3b82f6;
 }
 .shared-badge {
-  font-size: 0.55rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #7dd3fc;
   background: #1e3a5f;
@@ -240,6 +242,6 @@ layout: default
   text-align: center;
   padding-bottom: 0;
   margin-bottom: 0;
-  font-size: 0.58rem;
+  font-size: 0.72rem;
 }
 </style>

@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<PageNum />
+
 # Remote 需要它，shared scope 卻沒有
 
 <div class="body-wrap">
@@ -137,7 +139,7 @@ shared: share({
 }
 .code-block :deep(pre),
 .config-block :deep(pre) {
-  font-size: 0.62rem !important;
+  font-size: 0.72rem !important;
   line-height: 1.4 !important;
   margin: 0 !important;
 }

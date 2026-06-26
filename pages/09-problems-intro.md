@@ -6,7 +6,6 @@ class: text-center transition-page
 # 三個實戰踩坑
 
 <div class="mt-10 flex flex-col items-center gap-4">
-  <v-click>
   <div class="problem-row">
     <div class="problem-row-num">踩坑一</div>
     <div class="problem-row-body">
@@ -14,8 +13,6 @@ class: text-center transition-page
       <div class="problem-row-hint">→ inject context error</div>
     </div>
   </div>
-  </v-click>
-  <v-click>
   <div class="problem-row">
     <div class="problem-row-num">踩坑二</div>
     <div class="problem-row-body">
@@ -23,8 +20,6 @@ class: text-center transition-page
       <div class="problem-row-hint">→ Class extends value undefined</div>
     </div>
   </div>
-  </v-click>
-  <v-click>
   <div class="problem-row">
     <div class="problem-row-num">踩坑三</div>
     <div class="problem-row-body">
@@ -32,7 +27,6 @@ class: text-center transition-page
       <div class="problem-row-hint">→ 樣式污染 / 覆蓋失效</div>
     </div>
   </div>
-  </v-click>
 </div>
 
 <style>
