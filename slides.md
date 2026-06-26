@@ -32,10 +32,6 @@ src: ./pages/04-what-is-mf.md
 ---
 
 ---
-src: ./pages/05-mf-benefits.md
----
-
----
 src: ./pages/06-mf-implementation.md
 ---
 

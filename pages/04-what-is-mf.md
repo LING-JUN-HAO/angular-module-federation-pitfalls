@@ -84,6 +84,10 @@ layout: default
 
 </div>
 
+<div class="mt-4 text-sm" style="color: #94a3b8;">
+  換來的是 <span class="accent">開發彈性、獨立部署、故障隔離</span>，讓技術架構真實反映團隊的分工方式。
+</div>
+
 <style>
 .concept-card {
   background: #1e293b;

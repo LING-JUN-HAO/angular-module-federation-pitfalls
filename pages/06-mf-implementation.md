@@ -6,37 +6,8 @@ layout: default
 
 <div class="body-wrap">
   <div class="intro-line">
-    <div>常見的微前端整合方式包含 iframe、Web Components、Single SPA、Runtime Dynamic Loading 等</div>
-    <div class="intro-line-gap">核心都在處理同一件事：<span class="accent">如何將多個獨立前端應用組合成一個完整系統，同時維持各自的開發與部署邊界</span></div>
-  </div>
-  <div class="other-methods">
-    <div class="method-card">
-      <div class="method-name">iframe</div>
-      <div class="method-pro"><span class="label-pro">優</span>完全隔離、技術棧不限</div>
-      <div class="method-con"><span class="label-con">缺</span>路由與狀態同步困難</div>
-      <div class="method-con"><span class="label-con">缺</span>父子應用透過 postMessage 溝通</div>
-    </div>
-    <div class="method-card">
-      <div class="method-name">Web Components</div>
-      <div class="method-pro"><span class="label-pro">優</span>原生瀏覽器標準</div>
-      <div class="method-con"><span class="label-con">缺</span>資料與事件傳遞需自行規劃</div>
-      <div class="method-con"><span class="label-con">缺</span>樣式整合成本高</div>
-    </div>
-    <div class="method-card">
-      <div class="method-name">Single SPA</div>
-      <div class="method-pro"><span class="label-pro">優</span>完整微前端框架</div>
-      <div class="method-con"><span class="label-con">缺</span>子應用需配合主應用掛載流程</div>
-    </div>
-    <div class="method-card">
-      <div class="method-name">Runtime Dynamic Loading</div>
-      <div class="method-pro"><span class="label-pro">優</span>載入邏輯完全自訂</div>
-      <div class="method-con"><span class="label-con">缺</span>缺少標準化框架支援</div>
-      <div class="method-con"><span class="label-con">缺</span>版本與載入錯誤需自行處理</div>
-    </div>
-  </div>
-
-  <div class="intro-line">
-    而 <span class="accent">Webpack Module Federation</span> 更進一步，能在 <span class="accent">Runtime</span> 階段協商依賴版本，讓多個應用在版本相容時共享同一份模組實例，避免重複初始化與執行。
+    <div>常見的整合方式有 iframe、Web Components、Single SPA、Runtime Dynamic Loading 等，核心都在處理同一件事：<span class="accent">如何將多個獨立前端應用組合成一個完整系統，同時維持各自的開發與部署邊界</span>。</div>
+    <div class="intro-line-gap">而 <span class="accent">Webpack Module Federation</span> 更進一步，能在 <span class="accent">Runtime</span> 階段協商依賴版本，讓多個應用在版本相容時共享同一份模組實例，避免重複初始化與執行。</div>
   </div>
   <div class="wmf-card">
     <div class="wmf-header">
@@ -124,68 +95,8 @@ layout: default
   color: #7dd3fc;
   font-weight: 600;
 }
-.other-methods {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.6rem;
-  flex-shrink: 0;
-}
-.method-card {
-  background: #0f172a;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 0.5rem 0.7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
-}
-.method-name {
-  font-weight: 700;
-  font-size: 0.72rem;
-  color: #94a3b8;
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid #1e293b;
-}
-.method-pro {
-  font-size: 0.65rem;
-  color: #86efac;
-  line-height: 1.4;
-  display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
-}
-.method-con {
-  font-size: 0.65rem;
-  color: #f87171;
-  line-height: 1.4;
-  display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
-}
-.label-pro {
-  font-size: 0.52rem;
-  font-weight: 700;
-  background: #052e16;
-  color: #86efac;
-  border: 1px solid #14532d;
-  border-radius: 3px;
-  padding: 0.05em 0.35em;
-  flex-shrink: 0;
-}
-.label-con {
-  font-size: 0.52rem;
-  font-weight: 700;
-  background: #2d0f0f;
-  color: #f87171;
-  border: 1px solid #7f1d1d;
-  border-radius: 3px;
-  padding: 0.05em 0.35em;
-  flex-shrink: 0;
-}
 .wmf-card {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
+  flex: 0 0 auto;
   background: #071e38;
   border: 1px solid #1e4a6e;
   border-radius: 10px;
@@ -217,13 +128,13 @@ layout: default
 .wmf-body {
   display: flex;
   gap: 1.5rem;
-  flex: 1;
-  min-height: 0;
+  align-items: flex-start;
 }
 .wmf-divider {
   width: 1px;
   background: #1e3a5f;
   flex-shrink: 0;
+  align-self: stretch;
 }
 .dep-col {
   flex: 1;
@@ -244,7 +155,7 @@ layout: default
 .dep-apps {
   display: flex;
   gap: 0.5rem;
-  flex: 1;
+  align-items: flex-start;
 }
 .dep-app {
   flex: 1;
@@ -282,8 +193,6 @@ layout: default
 .dep-bad  { color: #f87171; }
 .dep-good { color: #86efac; }
 .dep-mf {
-  flex: 1;
-  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
